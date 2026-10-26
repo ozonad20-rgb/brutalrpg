@@ -210,6 +210,73 @@ table.t th{font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-si
 .crop-wrap canvas{width:100%;height:100%;display:block}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--block);color:var(--bone);font-family:var(--f-ui);font-weight:600;font-size:17px;padding:12px 18px;z-index:80;border-left:5px solid var(--blood);max-width:calc(100vw - 32px)}
 .center{min-height:60vh;display:grid;place-items:center;text-align:center}
+/* Guia de jogo */
+.top{padding-right:104px}
+.guide-btn{position:fixed;z-index:70;top:calc(12px + env(safe-area-inset-top,0px));right:calc(max(16px,env(safe-area-inset-right,0px)));display:inline-flex;align-items:center;gap:8px;
+  background:var(--block);color:var(--bone);border:2px solid var(--block);font-family:var(--f-ui);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:16px;padding:9px 14px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+.guide-btn:hover,.guide-btn[aria-expanded=true]{background:var(--blood);border-color:var(--blood);color:var(--on-blood)}
+.g-scrim{position:fixed;inset:0;background:rgba(10,4,6,.45);z-index:65}
+.guide{position:fixed;z-index:66;top:0;right:0;bottom:0;width:min(480px,100vw);background:var(--card);color:var(--ink);border-left:4px solid var(--ink);display:grid;grid-template-rows:auto auto auto 1fr;gap:12px;
+  padding:calc(64px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) 18px;box-shadow:-10px 0 30px rgba(0,0,0,.35)}
+.g-top{display:flex;justify-content:space-between;align-items:center;gap:10px;position:absolute;top:calc(14px + env(safe-area-inset-top,0px));left:18px;right:140px}
+.g-top b{font-family:var(--f-head);font-weight:400;text-transform:uppercase;font-size:28px;line-height:1}
+
+.g-tabs{display:flex;flex-wrap:wrap;gap:6px}
+.g-tabs button{font-family:var(--f-ui);font-weight:700;text-transform:uppercase;font-size:14px;letter-spacing:.04em;padding:6px 10px;border:2px solid var(--line);background:transparent;cursor:pointer;color:var(--ink-2)}
+.g-tabs button[aria-pressed=true]{background:var(--block);color:var(--bone);border-color:var(--block)}
+.g-body{overflow-y:auto;display:grid;gap:10px;align-content:start;padding-right:4px;min-height:0}
+.g-lead{margin:0;font-family:var(--f-ui);font-weight:600;color:var(--ink-2)}
+.g-it{border-top:2px solid var(--line);padding-top:10px;display:grid;gap:4px}
+.g-h{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;justify-content:space-between}
+.g-h b{font-family:var(--f-ui);font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:17px}
+.g-tag{font-family:var(--f-ui);font-weight:700;font-size:13px;text-transform:uppercase;color:var(--blood);letter-spacing:.04em}
+.g-it p{margin:0;font-size:16.5px;line-height:1.5}
+.qmark{width:30px;height:30px;border-radius:50%;border:2px solid currentColor;background:transparent;font-family:var(--f-ui);font-weight:700;font-size:17px;cursor:pointer;color:var(--ink-2);flex:0 0 auto;line-height:1;padding:0}
+.qmark:hover{color:var(--blood)}
+.kill .qmark{color:var(--k-ink)}
+.bh{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.bh h3{font-family:var(--f-head);font-weight:400;text-transform:uppercase;font-size:24px;line-height:1;margin:0}
+/* Ficha do jogador */
+.now{border:3px solid var(--ink);padding:14px 16px;display:grid;gap:8px;margin-bottom:14px;background:var(--card)}
+.now-t{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.now-t b{font-family:var(--f-head);font-weight:400;text-transform:uppercase;font-size:clamp(24px,4vw,32px);line-height:1.05}
+.now p{margin:0;font-size:18px;max-width:72ch}
+.now.red{background:var(--blood);border-color:var(--blood);color:var(--on-blood)}.now.red .qmark{color:var(--on-blood)}
+.now.red .btn.pri{background:var(--on-blood);color:var(--blood);border-color:var(--on-blood);justify-self:start}
+.now.dark{background:var(--block);border-color:var(--block);color:var(--bone)}.now.dark .qmark{color:var(--bone)}
+.now.warn{border-color:var(--blood);border-left-width:10px}
+.now.ok{background:var(--ok-bg);border-color:var(--ok)}
+.now.dead{opacity:.8;border-style:dashed}
+.sbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;background:var(--paper);border-bottom:3px solid var(--ink);padding:8px 104px 8px 0;margin-bottom:16px}
+.sb-n{font-family:var(--f-head);font-weight:400;text-transform:uppercase;font-size:20px;max-width:16ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sb-i{display:inline-flex;align-items:center;gap:6px}.sb-i .label{font-size:13px}.sb-i b{font-size:18px}
+.sb-k b{color:var(--blood)}
+.sb-c{font-family:var(--f-ui);font-weight:600;font-size:15px;color:var(--ink-2)}
+.stabs{display:flex;flex-wrap:wrap;gap:0;margin-bottom:18px;border:2px solid var(--ink);width:fit-content;max-width:100%}
+.stabs button{font-family:var(--f-ui);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:16px;padding:10px 16px;border:0;background:transparent;cursor:pointer;min-height:46px}
+.stabs button[aria-selected=true]{background:var(--block);color:var(--bone)}
+.hint{font-family:var(--f-ui);font-size:15px;color:var(--ink-2);line-height:1.4}
+.steps2{margin:0;padding-left:22px;font-family:var(--f-ui);font-size:16px;color:var(--ink-2);display:grid;gap:2px}
+.echips{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:6px}
+.echip{display:grid;gap:1px;text-align:left;border:2px solid var(--line);background:transparent;padding:8px 10px;cursor:pointer;min-height:54px}
+.echip b{font-family:var(--f-ui);font-weight:700;text-transform:uppercase;font-size:15px}
+.echip span{font-family:var(--f-ui);font-size:13.5px;color:var(--ink-2)}
+.echip.mine{border-color:var(--ink)}.echip.mine span{color:var(--blood);font-weight:700}
+.echip[aria-pressed=true]{background:var(--block);border-color:var(--block);color:var(--bone)}.echip[aria-pressed=true] span{color:var(--bone)}
+.rollbar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.btn.big{font-size:20px;min-height:56px;padding:12px 22px}
+.pv{font-family:var(--f-ui);font-size:16px;color:var(--ink-2)}.pv b{color:var(--ink)}
+.act .pv{color:inherit;opacity:.9;font-size:14px}.act .pv b{color:inherit}
+.vant.ok{border-left:4px solid var(--blood);padding-left:10px}
+.hab-box p{font-size:17px}
+/* Assassino: cartão Agora */
+.know{background:var(--k-blk);padding:16px;display:grid;gap:10px;border-left:10px solid var(--k-acc)}
+.know-t{font-family:var(--f-head);font-weight:400;text-transform:uppercase;font-size:clamp(26px,4vw,34px);line-height:1.05}
+.know p{margin:0;font-size:18px}
+.kseg{border-color:var(--k-ink)}.kseg button{color:var(--k-ink)}.kseg button[aria-pressed=true]{background:var(--k-ink);color:var(--k-blk)}
+.kini li{border-color:rgba(255,243,236,.3)}.kini li.on{background:var(--k-acc);border-color:var(--k-acc);color:var(--k-blk)}
+.kc.now{border-color:var(--k-acc);box-shadow:0 0 0 2px var(--k-acc)}
+@media (max-width:560px){.top{padding-right:0;padding-top:58px}.sbar{padding-right:0}.guide-btn span{display:none}.g-top{right:76px}}
 /* Ficha do Assassino: fundo vermelho, detalhes pretos */
 :root{--k-bg:#AE1230;--k-ink:#FFF3EC;--k-mut:#FFD6CE;--k-blk:#140607;--k-acc:#FF7083;--k-line:rgba(20,6,7,.6)}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--k-bg:#940D25}}
@@ -286,6 +353,8 @@ table.t th{font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-si
 .ini-ls li::before{content:counter(i) ". ";color:var(--ink-2)}
 .ini-ls li.on{background:var(--blood);border-color:var(--blood);color:var(--on-blood)}
 .ini-ls li.on::before{color:inherit}
+.box .kv > h3{font-family:var(--f-head);font-weight:400;text-transform:uppercase;font-size:24px;line-height:1;margin:0}
+.ini-ls li small{display:block;font-weight:600;font-size:12.5px;opacity:.75;text-transform:uppercase;letter-spacing:.04em}
 .box.hot{outline:4px solid var(--blood);outline-offset:-2px}
 .alert{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;background:var(--blood);color:var(--on-blood);padding:12px 16px;margin-bottom:16px;font-family:var(--f-ui);font-size:18px}
 .alert .btn.pri{background:var(--on-blood);color:var(--blood);border-color:var(--on-blood)}
@@ -328,8 +397,8 @@ const ARQ={
   cetica:{n:'Cética',c:'#5B5658',e:['Firme','Sagaz'],tr:'Centrada — Inquisitiva — Sensata',ord:8,hab:'Benefício da Dúvida',ht:'Você pode repetir todos os Testes de Susto ao menos uma vez. (Repetição automática na falha.)'}
 };
 const VANT_G=[
-  {k:'choque',n:'Choque de Realidade',custo:6,rec:'Encontro, Livre',fx:'+1 dado na Pilha Comum. Dá 1 PH ao Assassino.'},
-  {k:'jeito',n:'Tomar Jeito',custo:3,rec:'Sem restrição',fx:'Recupera um Estilo Incapacitado seu.'},
+  {k:'choque',n:'Choque de Realidade',custo:6,rec:'Encontro, Livre',fx:'+1 dado na Pilha Comum. O Assassino ganha 1 PH (Intento Horrível).'},
+  {k:'jeito',n:'Tomar Jeito',custo:3,rec:'Sem restrição',fx:'Recupera um Estilo Incapacitado seu ou de outra Sobrevivente.'},
   {k:'tratar',n:'Tratar Feridas',custo:null,rec:'Fim de um Encontro',fx:'+1 dado na Pilha Comum. Custo definido pela mesa.'}
 ];
 const VANT_E=[
@@ -380,7 +449,7 @@ const CENAS={livre:'Cena Livre',suspense:'Suspense',encontro:'Encontro'};
 /* ================= ESTADO ================= */
 const S={db:null,u:null,acct:null,view:'boot',authInfo:'',pendingName:'',authMode:'in',authErr:'',busy:false,
   homeTab:'gm',camps:[],campsReady:false,code:null,camp:null,sheets:[],rolls:[],rewards:[],tab:'mine',sheetId:null,
-  wiz:null,modal:null,crop:null,logOpen:true,seenRolls:0,lastRes:{},roll:{},rw:{sel:{},amt:1,kind:'xp',note:''},fv:{},undo:[],redo:[],grp:null,showPw:false,editStart:null,ktgt:null,kopt:{incap:false,incapStyle:'',segurar:false,mutilar:false},free:{n:1,s:20}};
+  wiz:null,modal:null,crop:null,logOpen:true,seenRolls:0,lastRes:{},roll:{},rw:{sel:{},amt:1,kind:'xp',note:''},fv:{},undo:[],redo:[],grp:null,showPw:false,editStart:null,stab:{},guide:{open:false,tab:'agora',q:''},ktgt:null,kopt:{incap:false,incapStyle:'',segurar:false,mutilar:false},free:{n:1,s:20}};
 let unsH=[],unsC=[];const pend={},timers={},wq={};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -570,6 +639,8 @@ function nextTurn(){const o=ordem(),cur=S.camp.turno||{};const i=o.findIndex(x=>
     if(fi>=0)ms[fi].valor+=1;else ms.push({tipo:'Ferida',valor:Math.max(1,sg.sequelas||0)});updSheet(nx.id,{marcadores:ms});toast(`${sg.name||'Sobrevivente'} está Segurada: Ferida +1.`)}}
   updCamp({turno:{id:nx.id,ord:nx.ord},rodada:rod})}
 function afterTurn(id){if(S.camp.cena==='encontro'&&S.camp.turno?.id===id)nextTurn()}
+function iniList(cls=''){const c=S.camp,enc=c.cena==='encontro';return `<ol class="ini-ls ${cls}">${ordem().map(x=>{const sh=x.id==='killer'?null:getSheet(x.id);const a=sh?ARQ[sh.arq]:null;
+  return `<li class="${enc&&c.turno?.id===x.id?'on':''}">${esc(x.name)}<small>${x.id==='killer'?'sempre por último':a?a.n:'sem arquétipo'}</small></li>`}).join('')}</ol>`}
 function turnName(){const t=S.camp.turno;if(!t)return '';if(t.id==='killer')return ck().nome||'Assassino';return getSheet(t.id)?.name||'—'}
 function fimEncontro(){if(S.camp.cena!=='encontro')return '';const viv=S.sheets.filter(s=>s.kind==='pc'&&s.status==='viva');
   if(!viv.length)return 'Nenhuma Sobrevivente segue no Encontro.';if((ck().pilha||0)<1)return 'O Assassino ficou sem dados.';return ''}
@@ -647,7 +718,7 @@ async function killerAct(kind,tid,o={}){const c=S.camp,k=ck(),t=getSheet(tid);co
     if(v===6){ph+=(o.incap?4:0)+(o.segurar?5:0);
       if(o.mutilar){p.sequelas=seq0+4;ph+=4;note='Mutilada: viva, +3 Sequelas extras e uma última chance de correr. +4 PH.'}
       else{p.status='morta';note='Morta instantaneamente.';if(enc){ph+=1;cp.mortesEnc=(c.mortesEnc||0)+1}}}
-    else{const i=ms.findIndex(m=>m.tipo==='Ferida');
+    else{const i=ms.findIndex(m=>m.tipo==='Ferida');p.ultFerida={v,antes:i>=0?ms[i].valor:0,at:Date.now()};
       if(i>=0){ms[i]={...ms[i],valor:Math.max(ms[i].valor+v,p.sequelas)};note=`Ferida somada: ${ms[i].valor}.`}
       else{ms.push({tipo:'Ferida',valor:Math.max(v,p.sequelas)});note=`Ferida ${Math.max(v,p.sequelas)}.`}
       if(o.incap&&o.incapStyle){p.incap=[...new Set([...(t.incap||[]),o.incapStyle])];note+=` ${o.incapStyle} incapacitado.`}
@@ -702,9 +773,9 @@ function pedirSusto(free,label){const c=S.camp,k=ck(),enc=c.cena==='encontro';co
   if(enc&&c.turno?.id==='killer'&&!free)nextTurn();
   logRoll({kind:'brutal',who:k.nome||'Assassino',label:label||'ASSUSTAR',dice:[],summary:`Teste de Susto pedido a ${alvos.length} Sobrevivente(s).`});toast('Teste de Susto pedido à mesa.')}
 async function setCena(c){const p={cena:c};
-  if(c==='encontro'&&S.camp.cena!=='encontro'){p.distrair=0;p.rodada=1;p.sustosUsados=0;p.pedido=null;p.mortesEnc=0;p.sangueUsado=false;p.sustoFalhas=[];
+  if(c==='encontro'&&S.camp.cena!=='encontro'){p.distrair=0;p.rodada=1;p.sustosUsados=0;p.pedido=null;p.mortesEnc=0;p.sangueUsado=false;p.tudoEnc=false;p.sustoFalhas=[];
     for(const s of S.sheets.filter(x=>x.kind==='pc'&&x.status!=='morta')){const sh=getSheet(s.id);const sp={fuga:0};if(sh.status==='escapou')sp.status='viva';
-      if(sh.flags?.planejar&&sh.pilha>0){sp.pilha=sh.pilha-1;sp.fuga=1;sp.flags={...sh.flags,planejar:false}}updSheet(s.id,sp)}
+      if(sh.flags?.planejar&&sh.pilha>0){sp.pilha=sh.pilha-1;sp.fuga=1;sp.flags={...sh.flags,planejar:false}}sp.flags={...(sp.flags||sh.flags||{}),habEnc:false};updSheet(s.id,sp)}
     const f=ordem()[0];p.turno={id:f.id,ord:f.ord}}
   if(c!=='encontro'&&S.camp.cena==='encontro'){p.distrair=0;p.turno=null;let fer=0;
     for(const s of S.sheets.filter(x=>x.kind==='pc'&&x.status!=='morta')){const sh=getSheet(s.id);const sp={};const ms=sh.marcadores||[];
@@ -714,7 +785,7 @@ async function setCena(c){const p={cena:c};
       if(Object.keys(sp).length)updSheet(s.id,sp)}
     if(fer){p.killer={ph:(ck().ph||0)+fer};toast(`Intento Horrível: ${fer} Sobrevivente(s) saíram com Ferida. +${fer} PH.`)}}
   updCamp(p);toast('Cena: '+CENAS[c])}
-async function newSession(){for(const s of S.sheets.filter(x=>x.kind==='pc'))updSheet(s.id,{apegos:{itemUsado:false,relacaoUsada:false}});S.modal=null;toast('Nova sessão: Apegos de uso único liberados.')}
+async function newSession(){for(const s of S.sheets.filter(x=>x.kind==='pc'))updSheet(s.id,{apegos:{itemUsado:false,relacaoUsada:false},flags:{habSes:false,tudoSes:false}});S.modal=null;toast('Nova sessão: Apegos, Arriscar Tudo e Habilidades de sessão liberados.')}
 async function giveReward(){const ids=Object.keys(S.rw.sel).filter(k=>S.rw.sel[k]);const amt=+S.rw.amt||0;
   if(!ids.length)return toast('Selecione ao menos uma ficha.');if(!amt)return toast('Informe a quantidade.');
   const targets=[];for(const id of ids){const s=getSheet(id);if(!s)continue;
@@ -836,10 +907,10 @@ function vGM(){const c=S.camp,k=c.killer||{};const pcs=S.sheets.filter(s=>s.kind
     <div class="seg" role="group" aria-label="Cena">${Object.entries(CENAS).map(([kk,l])=>`<button aria-pressed="${(c.cena||'livre')===kk}" data-act="cena" data-v="${kk}">${l}</button>`).join('')}</div></div>
    ${podeEnc&&!enc?`<div class="flag red">Sua Pilha (${k.pilha}) supera a de uma Sobrevivente: um Encontro já pode começar.</div>`:''}
    <div class="kbar">${portrait({name:k.nome,foto:k.foto},'av')}<b>${esc(k.nome||'Assassino')}</b><span class="num">${k.pilha||0} dados · ${k.ph||0} PH</span><span>${esc(k.ameaca||'')}</span>${killerTurn?'<span class="ktag gain">Vez do Assassino</span>':''}<button class="btn sm" data-act="tab" data-v="killer">Abrir ficha do Assassino</button></div>
-   ${enc?`<div class="box"><div class="kv"><h3>Iniciativa · Rodada ${c.rodada||1}</h3><div class="row"><button class="btn sm pri" data-act="nextTurn">Próximo turno →</button></div></div>
-     <ol class="ini-ls">${ordem().map(x=>`<li class="${c.turno?.id===x.id?'on':''}">${esc(x.name)}</li>`).join('')}</ol>
-     <p class="muted ui" style="margin:0">A vez avança sozinha quando a Sobrevivente da vez usa uma Ação de Encontro.${killerTurn?' <b>Agora é a vez do Assassino:</b> aja pela ficha do Assassino.':''}</p>
-     ${fim?`<div class="row"><div class="flag red">${fim}</div><button class="btn sm dark" data-act="cena" data-v="livre">Encerrar Encontro</button></div>`:''}</div>`:''}
+   <div class="box"><div class="kv"><h3>${enc?`Iniciativa · Rodada ${c.rodada||1}`:'Iniciativa do próximo Encontro'}</h3>${enc?`<div class="row"><button class="btn sm pri" data-act="nextTurn">Próximo turno →</button></div>`:gq('encontro')}</div>
+     ${iniList()}
+     <p class="muted ui" style="margin:0">${enc?`A vez avança sozinha quando a Sobrevivente da vez usa uma Ação de Encontro.${killerTurn?' <b>Agora é a vez do Assassino:</b> aja pela ficha do Assassino.':''}`:'Ordem fixa pelo Arquétipo: Heroína, Atleta, Valentona, Esbelta, Inocente, Nerd, Relaxada, Cética. O Assassino age sempre por último.'}</p>
+     ${enc&&fim?`<div class="row"><div class="flag red">${fim}</div><button class="btn sm dark" data-act="cena" data-v="livre">Encerrar Encontro</button></div>`:''}</div>
    ${pend_.length?`<div class="flag">Teste de Susto pendente: ${esc(pend_.join(', '))}</div>`:''}
    ${pcs.length?`<div class="pgrid">${pcs.map(s=>pcard(s,true)).join('')}</div>`:`<div class="empty"><span class="muted">As Sobreviventes aparecem aqui assim que alguém criar uma ficha.</span></div>`}
   </section>
@@ -854,7 +925,7 @@ function vGM(){const c=S.camp,k=c.killer||{};const pcs=S.sheets.filter(s=>s.kind
    <h2 class="blk red">Mesa</h2>
    <div class="box"><div class="kv"><div><div class="label">Código da campanha</div><div class="code" style="font-size:34px">${esc(c.code)}</div></div><button class="btn sm" data-act="copy" data-v="${esc(c.code)}">Copiar código</button></div>
    <p class="muted" style="margin:0">Passe este código para os jogadores entrarem pela tela inicial.</p>
-   <div class="row"><button class="btn sm" data-act="mSession">Iniciar nova sessão</button><span class="ui muted">Libera Item Icônico e Relação Afetiva.</span></div></div>
+   <div class="row"><button class="btn sm" data-act="mSession">Iniciar nova sessão</button><span class="ui muted">Libera Apegos, Arriscar Tudo e Habilidades de sessão.</span></div></div>
    <div class="box"><h3>Capa</h3>${coverHTML(c)}<div class="row"><label class="btn sm" for="cov-gm">${c.cover?'Trocar imagem':'Enviar imagem'}</label><input class="sr" id="cov-gm" type="file" accept="image/*" data-act="coverFile" data-v="${c.id}">
     ${c.cover?`<button class="btn sm ghost" data-act="rmCover">Remover</button>`:''}</div><p class="muted ui" style="margin:0">Proporção 16:9. Você ajusta o enquadramento antes de salvar.</p></div>
   </section>
@@ -884,9 +955,21 @@ function vGM(){const c=S.camp,k=c.killer||{};const pcs=S.sheets.filter(s=>s.kind
 /* ================= FICHA DO ASSASSINO ================= */
 const ktag=(x,cls='')=>`<span class="ktag ${cls}">${x}</span>`;
 const kcostTag=n=>n?ktag(n+' PH'):ktag('Grátis');
-function kcard(o){return `<article class="kc ${o.mine===false?'off':''} ${o.mine?'mine':''}"><div class="kc-h"><b>${o.n}</b><span>${o.tags||''}</span></div>
+function kcard(o){const now=o.btn&&/<button(?![^>]*disabled)[^>]*>/.test(o.btn);return `<article class="kc ${o.mine===false?'off':''} ${o.mine?'mine':''} ${now?'now':''}"><div class="kc-h"><b>${o.n}</b><span>${now?'<span class="ktag gain">Disponível</span>':''}${o.tags||''}</span></div>
   <p>${o.fx}</p>${o.extra||''}${o.btn?`<div class="row">${o.btn}</div>`:''}${o.why?`<div class="kc-why">${o.why}</div>`:''}</article>`}
 const firstWhy=(...a)=>a.find(Boolean)||'';
+function kNow(){const c=S.camp,k=ck(),enc=c.cena==='encontro',kt=enc&&c.turno?.id==='killer';const pil=k.pilha||0;
+  const viv=S.sheets.filter(s=>s.kind==='pc'&&s.status==='viva');const minP=viv.length?Math.min(...viv.map(s=>s.pilha||0)):null;
+  const fracas=viv.filter(s=>(s.pilha||0)<pil).map(s=>s.name||'Sem nome');const fim=fimEncontro();let t,d,b='';
+  if(enc){
+    if(fim){t='O Encontro pode acabar.';d=fim+' Encerre para devolver as Pilhas de Fuga e somar os Intentos automáticos.';b=`<button class="btn kb pri" data-act="cena" data-v="livre">Encerrar Encontro</button>`}
+    else if(kt){t='Sua vez, Diretora.';d=`1. Escolha o alvo. 2. Use uma das ações destacadas. A vez passa sozinha. Ferir mata com 6 (1 em 6). ${fracas.length?`MATAR liberado contra: ${fracas.join(', ')}.`:'Ninguém tem menos dados que você, então MATAR ainda não vale.'}${k.ph?` Você tem ${k.ph} PH.`:''}`}
+    else{t=`Vez de ${turnName()}.`;d='Espere a Sobrevivente agir. A vez passa sozinha quando ela usa uma Ação de Encontro; se ela só narrou, passe a vez.';b=`<button class="btn kb" data-act="nextTurn">Próximo turno →</button>`}}
+  else{if(minP!=null&&pil>minP){t='Você pode iniciar um Encontro.';d=`Sua Pilha (${pil}) passou a de: ${viv.filter(s=>(s.pilha||0)<pil).map(s=>s.name||'Sem nome').join(', ')}. ${APAV[kApav(k)].cena.includes('Livre')&&kApav(k)==='buh'?'Lembre do Buh! logo no início.':''}`;b=`<button class="btn kb pri" data-act="cena" data-v="encontro">Iniciar Encontro</button>`}
+    else{t=`${CENAS[c.cena||'livre']}: junte dados.`;d=`Cada falha das Sobreviventes vai para a sua Pilha. Peça testes e sustos. ${minP!=null?`Para iniciar um Encontro você precisa de mais de ${minP} dado${minP!==1?'s':''} (tem ${pil}).`:'Ainda não há Sobreviventes vivas na mesa.'}`}}
+  return `<div class="know"><div class="kv"><div class="seg kseg" role="group" aria-label="Cena">${Object.entries(CENAS).map(([kk,l])=>`<button aria-pressed="${(c.cena||'livre')===kk}" data-act="cena" data-v="${kk}">${l}</button>`).join('')}</div>${gq(enc?'assassino':'diretora','Ver no guia')}</div>
+   <b class="know-t">${esc(t)}</b><p>${esc(d)}</p>${b?`<div class="row">${b}</div>`:''}
+   <div class="label">${enc?'Iniciativa':'Iniciativa do próximo Encontro'}</div>${iniList('kini')}</div>`}
 function vKiller(){const c=S.camp,k=ck(),am=AMEACAS[k.ameaca],acoes=kAcoes(k),apk=kApav(k),ap=APAV[apk];const enc=c.cena==='encontro';const kt=enc&&c.turno?.id==='killer';
   const viv=S.sheets.filter(s=>s.kind==='pc'&&s.status==='viva').sort(byIni);if(!viv.some(s=>s.id===S.ktgt))S.ktgt=viv[0]?.id||null;const t=S.ktgt?getSheet(S.ktgt):null;
   const ph=k.ph||0,pil=k.pilha||0,extra=c.distrair||0,ko=S.kopt,tn=esc(t?.name||'alvo');
@@ -944,7 +1027,7 @@ function vKiller(){const c=S.camp,k=ck(),am=AMEACAS[k.ameaca],acoes=kAcoes(k),ap
   const st=(lbl,f,max,big,extraH='')=>`<div class="kst"><span class="label">${lbl}</span><span class="v num">${big}</span>${extraH}
     ${f?`<div class="stepper"><button data-act="kstep" data-f="${f}" data-d="-1" aria-label="Diminuir ${lbl}">−</button><button data-act="kstep" data-f="${f}" data-d="1" aria-label="Aumentar ${lbl}">+</button></div>`:''}</div>`;
   return `<div class="kill">
-   ${kt?`<div class="kalert">Vez do Assassino. Escolha um alvo e uma ação: a vez passa sozinha depois.</div>`:''}
+   ${kNow()}
    <div class="khead"><div class="stack" style="gap:8px;justify-items:start">${portrait({name:k.nome,foto:k.foto},'lg')}
      <label class="btn sm" for="kfoto">${k.foto?'Trocar imagem':'Adicionar imagem'}</label><input class="sr" id="kfoto" type="file" accept="image/*" data-act="fotoFile" data-v="killer"></div>
     <div class="grow stack" style="gap:8px"><span class="label">Assassino · ${esc(k.ameaca||'sem Ameaça')}${k.ameaca2?' '+esc(k.ameaca2):''}${am?' · '+am.tr:''}</span>
@@ -961,7 +1044,7 @@ function vKiller(){const c=S.camp,k=ck(),am=AMEACAS[k.ameaca],acoes=kAcoes(k),ap
    </div>
    <section class="stack" style="gap:10px"><h2 class="kh">Alvo</h2>
     ${viv.length?`<div class="ktgs">${viv.map(s=>{const ms=(s.marcadores||[]).map(m=>m.tipo+' '+m.valor).join(' · ');
-      return `<button class="ktg" aria-pressed="${s.id===S.ktgt}" data-act="ktgt" data-v="${s.id}">${portrait(s,'av')}<span>${esc(s.name||'Sem nome')}<small>${s.pilha||0} dados${(s.pilha||0)<pil&&enc?' · pode morrer':''}${ms?' · '+esc(ms):''}</small></span></button>`}).join('')}</div>`:'<p class="kc-why" style="margin:0">Nenhuma Sobrevivente viva.</p>'}
+      return `<button class="ktg" aria-pressed="${s.id===S.ktgt}" data-act="ktgt" data-v="${s.id}">${portrait(s,'av')}<span>${esc(s.name||'Sem nome')}<small>${s.pilha||0} dados${(s.pilha||0)<pil&&enc?' · MATAR liberado':''}${ms?' · '+esc(ms):''}</small></span></button>`}).join('')}</div>`:'<p class="kc-why" style="margin:0">Nenhuma Sobrevivente viva.</p>'}
    </section>
    <section class="stack" style="gap:10px"><h2 class="kh">Ações gerais</h2><div class="kgrid">${G.map(kcard).join('')}</div></section>
    <section class="stack" style="gap:10px"><h2 class="kh">Ações únicas${am?' · '+esc(k.ameaca):''}</h2><div class="kgrid">${U}</div></section>
@@ -1019,89 +1102,261 @@ function photoCtl(s){return `<div class="stack" style="gap:8px;justify-items:sta
   <div class="row" style="gap:6px"><label class="btn sm" for="foto-${s.id}">${s.foto?'Trocar foto':'Adicionar foto'}</label><input class="sr" id="foto-${s.id}" type="file" accept="image/*" data-act="fotoFile" data-id="${s.id}">
   ${s.foto?`<button class="btn sm ghost" data-act="rmFoto" data-id="${s.id}">Remover</button>`:''}</div></div>`}
 
+/* ================= FICHA DO JOGADOR ================= */
+const HAB={heroina:{auto:'Aplicada sozinha quando você usa Arriscar Tudo para se salvar.'},
+  atleta:{rec:'enc',how:'Depois de rolar, troque o resultado de um dado pelo valor de um dos seus Dados Marcadores. Avise a Diretora e ajuste com ela.'},
+  valentona:{rec:'enc',how:'Durante um Encontro, descarte um dado da sua Pilha de Fuga. Combine o efeito narrativo com a Diretora.'},
+  esbelta:{auto:'Cada 6 que você rolar já soma +1 PT sozinho.'},
+  inocente:{rec:'ses',how:'Quando alguém usar Ajudar Alguém em você num Encontro, toque em Usar: quem ajudou recebe de volta os dados doados (vêm do Descarte).'},
+  nerd:{rec:'ses',how:'Durante um Encontro, toque em Usar para descobrir quantos dados faltam para completar sua Pilha de Fuga.'},
+  relaxada:{rec:'enc',how:'Logo depois de sofrer uma Ferida, toque em Usar para rolar de novo o valor dessa Ferida e ficar com o novo resultado.'},
+  cetica:{auto:'Se você falhar num Teste de Susto, o app rola de novo sozinho.'}};
+const comb=(n,k)=>{let r=1;for(let i=1;i<=k;i++)r=r*(n-k+i)/i;return r};
+function pAtLeast(n,diff,need){if(need<=0)return 1;if(n<need)return 0;const p=clamp((7-diff)/6,0,1);let s=0;for(let k=need;k<=n;k++)s+=comb(n,k)*p**k*(1-p)**(n-k);return s}
+const pct=x=>x>=.995?'quase certo':x<=.005?'quase impossível':Math.round(x*100)+'%';
+function hasEst(s,e){return !!e&&(s.estilos||[]).includes(e)&&!(s.incap||[]).includes(e)}
+function diffOf(s,e,rec){return clamp(4-(hasEst(s,e)?1:0)-(rec?1:0),2,6)}
+const isRestr=s=>(s.marcadores||[]).some(m=>m.tipo==='Restrição'&&m.valor>0);
+const gq=(k,lbl='Ver no guia')=>`<button class="qmark" data-act="guide" data-v="${k}" aria-label="${lbl}" title="${lbl}">?</button>`;
+const habUsed=(s,h)=>h&&h.rec&&(h.rec==='enc'?s.flags?.habEnc:s.flags?.habSes);
+
+function nowPlayer(s){const c=S.camp,k=ck(),enc=c.cena==='encontro',id=s.id;const fa=k.fugaAlvo||6;const falta=Math.max(0,fa-(s.fuga||0));
+  const sus=(c.pedido?.alvos||[]).includes(id),seg=(s.marcadores||[]).some(m=>m.tipo==='Segurada');
+  const pos=ordem().findIndex(x=>x.id===id)+1,turn=c.turno?.id===id;const perigo=enc&&(s.pilha||0)<(k.pilha||0);
+  if(s.status==='morta')return{tone:'dead',t:'Sua Sobrevivente morreu.',d:'Ela sai do jogo. Você pode criar outra ficha na aba Criar ficha, se a Diretora deixar.'};
+  if(s.status==='escapou')return{tone:'ok',t:'Você escapou do Encontro.',d:'Fique fora da cena até o Encontro acabar. Quando ele terminar, os dados da Pilha de Fuga voltam para a sua Pilha Comum.'};
+  if(sus)return{tone:'red',t:'A Diretora pediu um Teste de Susto.',d:`Role 1 dado da sua Pilha: ${diffOf(s,'',false)}+ passa. Se falhar, o dado é descartado e o Assassino ganha PH.`,
+    btn:`<button class="btn pri" data-act="roll" data-v="susto" data-id="${id}" ${s.pilha?'':'disabled'}>Rolar Teste de Susto</button>`};
+  if(enc&&turn)return{tone:'red',t:'Sua vez no Encontro.',d:`Escolha uma Ação de Encontro abaixo.${seg?' Você está Segurada: não pode Vazar Dali.':` Para fugir faltam ${falta} dado${falta!==1?'s':''} na Pilha de Fuga.`}${perigo?` Cuidado: você tem menos dados que o Assassino (${k.pilha}), então ele pode te MATAR.`:''}`,guide:'encontro'};
+  if(enc){const who=turnName();return{tone:perigo?'warn':'dark',t:`Encontro: vez de ${who}.`,d:`Você age em ${pos}º na Iniciativa. Faltam ${falta} dado${falta!==1?'s':''} para você fugir.${perigo?` Você tem menos dados que o Assassino (${k.pilha}), então ele pode te MATAR na vez dele.`:''}`,guide:'encontro'}}
+  if(!(s.pilha||0))return{tone:'warn',t:'Sua Pilha Comum está vazia.',d:'Sem dados você não consegue arriscar testes. Use uma Vantagem que dá dados (Choque de Realidade, Resistir à Dor, Tratar Feridas) ou ganhe PT com Desafios e Apegos.',guide:'pt'};
+  const vs=[...VANT_G,...VANT_E.filter(v=>(s.estilos||[]).includes(v.e)&&!(s.incap||[]).includes(v.e))].filter(v=>v.custo!=null&&v.custo<=(s.pt||0)).map(v=>v.n);
+  const ap=[s.apegos?.item&&!s.apegos.itemUsado&&'Item Icônico',s.apegos?.relacao&&!s.apegos.relacaoUsada&&'Relação Afetiva',s.apegos?.desejo&&!s.apegos.desejoRevelado&&'Desejo Obscuro'].filter(Boolean);
+  const dica=vs.length?` Com ${s.pt} PT você pode usar: ${vs.slice(0,3).join(', ')}${vs.length>3?'…':''}.`:ap.length?` Use um Apego (${ap.join(', ')}) na história para ganhar PT.`:'';
+  if(c.cena==='suspense')return{tone:'warn',t:'Suspense: o perigo está perto.',d:'Testes funcionam como na Cena Livre: falhas vão para a Pilha da Diretora. Se a Pilha dela passar a sua, um Encontro pode começar.'+dica,guide:'basico'};
+  return{tone:'calm',t:'Cena Livre.',d:'Narre o que sua Sobrevivente faz. Quando a Diretora pedir um teste, escolha quantos dados arriscar e o Estilo abaixo. Falhas vão para a Pilha da Diretora.'+dica,guide:'testes'}}
+
+function sbar(s){const c=S.camp,k=ck(),enc=c.cena==='encontro';
+  return `<div class="sbar">${portrait(s,'av')}<b class="sb-n">${esc(s.name||'Sem nome')}</b>
+   <span class="sb-i" title="Pilha Comum"><span class="label">Pilha</span><span class="mini">${dots(s.pilha||0,6)}</span><b class="num">${s.pilha||0}</b></span>
+   ${enc?`<span class="sb-i" title="Pilha de Fuga"><span class="label">Fuga</span><span class="mini fuga">${dots(s.fuga||0,k.fugaAlvo||6)}</span><b class="num">${s.fuga||0}/${k.fugaAlvo||6}</b></span>`:''}
+   <span class="sb-i"><span class="label">PT</span><b class="num">${s.pt||0}</b></span>
+   <span class="sb-i sb-k" title="Dados do Assassino"><span class="label">Assassino</span><b class="num">${k.pilha||0}</b></span>
+   <span class="sb-c">${enc?`Rodada ${c.rodada||1} · vez de ${esc(turnName())}`:CENAS[c.cena||'livre']}</span></div>`}
+
+function rollPreview(s,n,e,cx,rec,extraSucc=0,lbl){const d_=diffOf(s,e,rec),need=(cx||isRestr(s))?2:1;const p=pAtLeast(n,d_,Math.max(0,need-extraSucc));
+  return `<span class="pv"><b>${d_}+</b> · ${need===2?'2 sucessos':'1 sucesso'} · chance <b>${pct(p)}</b>${lbl?' · '+lbl:''}</span>`}
+
 function vSheet(id){const s=getSheet(id);if(!s)return `<p class="label">Ficha não encontrada ou apagada.</p>`;
   const can=isGM()||s.owner===S.u;if(!can)return `<p class="label">Essa ficha pertence a outro jogador.</p>`;
   if(s.kind==='npc')return vNPC(s);
-  const a=ARQ[s.arq],k=ck(),c=S.camp,cena=c.cena||'livre',enc=cena==='encontro';const r=S.roll[id]||(S.roll[id]={n:1,estilo:'',complexo:false,recurso:false,alvo:''});
+  const a=ARQ[s.arq],k=ck(),c=S.camp,cena=c.cena||'livre',enc=cena==='encontro';const r=S.roll[id]||(S.roll[id]={n:1,estilo:'',complexo:false,recurso:false,alvo:'',ajEst:''});
   r.n=clamp(r.n,1,Math.max(1,s.pilha||0));const res=S.lastRes[id];const allies=S.sheets.filter(x=>x.kind==='pc'&&x.id!==id&&x.status==='viva');
-  const est=s.estilos||[];const myV=VANT_E.filter(v=>est.includes(v.e));
-  const dis=s.status!=='viva'?'disabled':'';const myTurn=enc&&c.turno?.id===id;const sus=(c.pedido?.alvos||[]).includes(id);
-  const tip=e=>(est.includes(e)&&!(s.incap||[]).includes(e))?`${e} (3+)`:`${e} (4+)`;
+  const est=s.estilos||[];const myV=VANT_E.filter(v=>est.includes(v.e));const now=nowPlayer(s);const tab=S.stab[id]==='vant'?'vant':'pers';
+  const dis=s.status!=='viva'?'disabled':'';const myTurn=enc&&c.turno?.id===id;
+  const tip=e=>hasEst(s,e)?`${e} (3+)`:`${e} (4+)`;
   const segMe=(s.marcadores||[]).some(m=>m.tipo==='Segurada');const segAlvo=r.alvo&&(getSheet(r.alvo)?.marcadores||[]).some(m=>m.tipo==='Segurada');const restr=(s.marcadores||[]).find(m=>m.tipo==='Restrição');
-  return `${sus?`<div class="alert"><b>A Diretora pediu um Teste de Susto.</b><button class="btn pri" data-act="roll" data-v="susto" data-id="${id}" ${dis||(!s.pilha?'disabled':'')}>Rolar Teste de Susto</button></div>`:''}
-  ${myTurn&&s.status==='viva'?`<div class="alert"><b>Sua vez no Encontro.</b> <span>Escolha uma Ação de Encontro abaixo. A vez passa sozinha depois.</span></div>`:''}
-  ${segMe&&s.status==='viva'?'<div class="alert"><b>Você está Segurada.</b> <span>Não pode Vazar Dali, e a Ferida sobe 1 no começo de cada turno seu. Uma aliada pode te Libertar.</span></div>':''}
+  const noDice=!s.pilha?'disabled':'';const h=HAB[s.arq];
+  const lose=enc?'falhas vão para o Descarte':'falhas vão para a Pilha da Diretora';
+  const actCard=(v,nm,e,info,extra='',cls='',dsb='')=>`<button class="act ${cls}" data-act="${v==='folego'?'folego':v==='tudo'?'mTudo':'roll'}" data-v="${v}" data-id="${id}" ${dis||dsb}><b>${nm}</b><span>${info}</span>${extra}</button>`;
+  const head=`<div class="now ${now.tone}" role="status"><div class="now-t"><b>${esc(now.t)}</b>${now.guide?gq(now.guide):''}</div><p>${esc(now.d)}</p>${now.btn||''}</div>
+  ${sbar(s)}
   <div class="sheet-head">${photoCtl(s)}<div class="grow stack" style="gap:6px"><label class="label" for="sn">Sobrevivente</label><input id="sn" class="name-in" type="text" value="${esc(s.name)}" data-sf="name" placeholder="Nome">
-   <div class="row">${a?`<span class="chip" style="background:${a.c}">${a.n} · Iniciativa ${a.ord}</span>`:''}${s.status!=='viva'?`<span class="state ${s.status}" style="font-size:18px">${s.status}</span>`:''}
+   <div class="row">${a?`<span class="chip" style="background:${a.c}">${a.n} · Iniciativa ${a.ord}</span>`:'<span class="chip out">Escolha um arquétipo abaixo</span>'}${est.map(e=>`<span class="chip ${(s.incap||[]).includes(e)?'inc':'out'}">${e}</span>`).join('')}${s.status!=='viva'?`<span class="state ${s.status}" style="font-size:18px">${s.status}</span>`:''}
    ${isGM()?`<select style="width:auto" aria-label="Situação" data-act="status" data-v="${id}"><option value="viva" ${s.status==='viva'?'selected':''}>Viva</option><option value="escapou" ${s.status==='escapou'?'selected':''}>Escapou</option><option value="morta" ${s.status==='morta'?'selected':''}>Morta</option></select>`:''}
    <span class="ui muted">Jogador: ${s.owner?esc(nmU(s.owner)):'—'}</span></div></div></div>
-  <div class="cols">
-  <section class="sec">
-   <div class="box"><h3>Pilhas</h3>
-    <div><div class="kv"><span class="label">Pilha Comum</span><span class="num" style="font-size:22px">${s.pilha||0}/6</span></div>${slots(s.pilha||0,6,'setPilha',id)}</div>
-    ${enc||s.fuga?`<div><div class="kv"><span class="label">Pilha de Fuga</span><span class="num" style="font-size:22px">${s.fuga||0}/${k.fugaAlvo||6}</span></div>${slots(s.fuga||0,k.fugaAlvo||6,'setFuga',id,'fuga')}</div>`:''}
+  <div class="stabs" role="tablist">${[['pers','Personagem'],['vant',`Vantagens e Apegos · ${s.pt||0} PT`]].map(([kk,l])=>`<button role="tab" aria-selected="${tab===kk}" data-act="stab" data-v="${kk}" data-id="${id}">${l}</button>`).join('')}</div>`;
+
+  const pilhas=`<div class="box"><div class="bh"><h3>Pilhas</h3>${gq('basico')}</div>
+    <div><div class="kv"><span class="label">Pilha Comum</span><span class="num" style="font-size:22px">${s.pilha||0}/6</span></div>${slots(s.pilha||0,6,'setPilha',id)}<div class="hint">Seus dados para testes. Toque num quadrado para ajustar à mão.</div></div>
+    ${enc||s.fuga?`<div><div class="kv"><span class="label">Pilha de Fuga</span><span class="num" style="font-size:22px">${s.fuga||0}/${k.fugaAlvo||6}</span></div>${slots(s.fuga||0,k.fugaAlvo||6,'setFuga',id,'fuga')}<div class="hint">Encha para escapar do Encontro.</div></div>`:''}
+   </div>`;
+  const ptBox=`<div class="box"><div class="bh"><h3>Pontos</h3>${gq('pt')}</div>
     <div><div class="kv"><span class="label">Pontos de Tensão</span><span class="num" style="font-size:22px">${s.pt||0}/10</span></div><div class="pips">${Array.from({length:10},(_,i)=>`<button class="pip ${i<(s.pt||0)?'on':''}" data-act="setPT" data-v="${i+1}" data-id="${id}" aria-label="${i+1} PT"></button>`).join('')}</div></div>
-    <div class="row"><div class="field" style="flex:0 0 auto"><span class="label">XP</span><span class="num" style="font-size:26px">${s.xp||0}</span></div>
-     <div class="field" style="flex:0 0 auto"><span class="label">Sequelas</span><div class="stepper"><button data-act="sstep" data-f="sequelas" data-d="-1" data-id="${id}" aria-label="Menos sequelas">−</button><span class="v num">${s.sequelas||0}</span><button data-act="sstep" data-f="sequelas" data-d="1" data-id="${id}" aria-label="Mais sequelas">+</button></div></div>
-     <div class="field" style="flex:0 0 auto"><span class="label">Recursos</span><div class="stepper"><button data-act="sstep" data-f="recursos" data-d="-1" data-id="${id}" aria-label="Menos recursos">−</button><span class="v num">${s.recursos||0}</span><button data-act="sstep" data-f="recursos" data-d="1" data-id="${id}" aria-label="Mais recursos">+</button></div></div></div>
-   </div>
+    <div class="row" style="justify-content:space-between"><div class="field" style="flex:0 0 auto"><span class="label">XP</span><span class="num" style="font-size:26px">${s.xp||0}</span></div><button class="btn sm" data-act="stab" data-v="vant" data-id="${id}">Gastar PT em Vantagens →</button></div>
+   </div>`;
+  const nStep=`<div class="field" style="flex:0 0 auto"><span class="label">Dados a arriscar</span><div class="stepper"><button data-act="rn" data-d="-1" data-id="${id}" aria-label="Menos dados">−</button><span class="v num">${r.n}</span><button data-act="rn" data-d="1" data-id="${id}" aria-label="Mais dados">+</button></div></div>`;
+  const recChk=`<div class="row" style="gap:10px"><div class="field" style="flex:0 0 auto"><span class="label">Recursos</span><div class="stepper"><button data-act="sstep" data-f="recursos" data-d="-1" data-id="${id}" aria-label="Menos recursos">−</button><span class="v num">${s.recursos||0}</span><button data-act="sstep" data-f="recursos" data-d="1" data-id="${id}" aria-label="Mais recursos">+</button></div></div><label class="check" style="align-self:end;min-height:44px"><input type="checkbox" data-rf="recurso" data-id="${id}" ${r.recurso?'checked':''} ${(s.recursos||0)<1?'disabled':''}>Usar Recurso (−1 na dificuldade)${(s.recursos||0)<1?' · você não tem':''}</label></div>`;
+  const restrBox=restr?`<div class="flag">Restrição ${restr.valor}: todo teste seu precisa de 2 sucessos.</div><div class="row"><button class="btn sm dark" data-act="roll" data-v="restr" data-e="Ligeiro" data-id="${id}" ${dis||noDice}>Reduzir Restrição (${tip('Ligeiro')})</button><button class="btn sm dark" data-act="roll" data-v="restr" data-e="Sagaz" data-id="${id}" ${dis||noDice}>Reduzir (${tip('Sagaz')})</button></div>`:'';
+  const resBox=res?`<div class="result ${res.win?'win':'lose'}" aria-live="polite"><div class="label">${esc(res.label)}</div><div class="dice">${res.dice.map(x=>`<span class="die ${Date.now()-res.at<1200?'new':''} ${x.ok?'ok':'no'}">${x.v}</span>`).join('')}</div>
+     <div class="big">${res.win?'Sucesso':'Falha'}</div><div class="ui" style="font-weight:600">${esc(res.summary)}</div>${res.note?`<div class="ui">${esc(res.note)}</div>`:''}<div class="ui muted" style="font-size:15px">Errou algo? Ctrl+Z (ou Desfazer, no topo) devolve os dados.</div></div>`:'';
+  let acoes;
+  if(enc){const fa=k.fugaAlvo||6;
+    acoes=`<div class="box ${myTurn?'hot':''}"><div class="bh"><h3>Ações de Encontro</h3>${gq('encontro')}</div>
+     <div class="ui muted">${myTurn?'<b>É a sua vez.</b> Escolha uma ação.':'Você pode preparar a ação enquanto espera a sua vez.'} Vantagens ficam bloqueadas no Encontro. ${esc(lose)}.</div>
+     <div class="row">${nStep}${recChk}</div>${restrBox}
+     <div class="acts">
+      ${actCard('vazar','Vazar Dali','Ligeiro',segMe?'Bloqueado: você está Segurada.':`Teste Ligeiro. Cada sucesso vai para a Fuga; cada 6 puxa mais 1.`,segMe?'':rollPreview(s,r.n,'Ligeiro',false,r.recurso),'',segMe||!s.pilha?'disabled':'')}
+      ${actCard('partir','Partir Para Cima','Potente',`Teste Potente. Com 1 sucesso, a Diretora descarta 1 dado.${s.flags?.surpreender?' Surpreender ativo: 1 sucesso garantido.':''}`,rollPreview(s,r.n,'Potente',false,r.recurso,s.flags?.surpreender?1:0),'',noDice)}
+      ${actCard('distrair','Distrair','Desenrolado','Teste Complexo Desenrolado. Se passar, MATAR custa à Diretora +1 dado e +3 PH.',rollPreview(s,Math.max(r.n,Math.min(2,s.pilha||0)),'Desenrolado',true,r.recurso),'',(s.pilha||0)<2?'disabled':'')}
+      ${actCard('folego','Recuperar Fôlego','','+1 dado na sua Pilha Comum. Sem rolagem.','','',(s.pilha||0)>=6?'disabled':'')}
+      ${actCard('tudo','Arriscar Tudo','','Uma Sobrevivente (você ou outra) escapa já. Você descarta todos os seus dados.','','danger')}
+     </div>
+     <div class="field"><span class="label">Ajudar Alguém</span><div class="row"><label class="sr" for="ra-${id}">Quem ajudar</label><select id="ra-${id}" data-rf="alvo" data-id="${id}" style="flex:1 1 170px"><option value="">Quem ajudar?</option>${allies.map(x=>`<option value="${x.id}" ${r.alvo===x.id?'selected':''}>${esc(x.name||'Sem nome')} (${x.pilha||0}/6)</option>`).join('')}</select>
+      <button class="btn sm dark" data-act="roll" data-v="ajudar" data-id="${id}" ${dis||(!r.alvo||!s.pilha?'disabled':'')}>Ajudar</button>
+      ${allies.some(x=>(x.marcadores||[]).some(m=>m.tipo==='Segurada'))?`<button class="btn sm dark" data-act="roll" data-v="libertar" data-id="${id}" ${dis||(!segAlvo?'disabled':'')}>Libertar (Complexo, Potente)</button>`:''}</div>
+      <span class="label">Como você ajuda? (Estilo)</span><div class="echips">${['',...ESTILOS].map(e=>`<button class="echip ${hasEst(s,e)?'mine':''}" aria-pressed="${(r.ajEst||'')===e}" data-act="ajstyle" data-v="${e}" data-id="${id}"><b>${e||'Sem estilo'}</b><span>${e?(hasEst(s,e)?'seu · 3+':'4+'):'4+'}</span></button>`).join('')}</div>
+      <div class="hint">Escolha o Estilo pela forma como você ajuda: carregar é Potente, acalmar é Firme, um plano rápido é Sagaz. Seus sucessos viram dados na Pilha de quem você ajudou. Falhas não são perdidas.${r.alvo?' '+rollPreview(s,r.n,r.ajEst,false,r.recurso):''}</div></div>
+     ${resBox}</div>`}
+  else{const sel=r.estilo;
+    acoes=`<div class="box"><div class="bh"><h3>Arriscar dados</h3>${gq('testes')}</div>
+     <ol class="steps2"><li>Quando a Diretora pedir um teste, escolha quantos dados arriscar.</li><li>Escolha o Estilo que combina com a ação. Os seus deixam o teste mais fácil.</li><li>Role. Cada dado com o número indicado ou mais é um sucesso, e ${esc(lose)}.</li></ol>
+     <div class="row">${nStep}<div class="field" style="flex:0 0 auto"><span class="label">Dificuldade do teste</span><div class="seg"><button aria-pressed="${!r.complexo}" data-act="rcx" data-v="0" data-id="${id}">Comum · 1 sucesso</button><button aria-pressed="${r.complexo}" data-act="rcx" data-v="1" data-id="${id}">Complexo · 2</button></div></div></div>
+     <div class="field"><span class="label">Estilo</span><div class="echips">${['',...ESTILOS].map(e=>`<button class="echip ${hasEst(s,e)?'mine':''}" aria-pressed="${sel===e}" data-act="rstyle" data-v="${e}" data-id="${id}"><b>${e||'Sem estilo'}</b><span>${e?(hasEst(s,e)?'seu · 3+':(s.incap||[]).includes(e)?'incapacitado · 4+':'4+'):'4+'}</span></button>`).join('')}</div></div>
+     ${recChk}${restrBox}
+     <div class="rollbar"><button class="btn pri big" data-act="roll" data-v="teste" data-id="${id}" ${dis||noDice}>Arriscar ${r.n} dado${r.n>1?'s':''}</button>${rollPreview(s,r.n,sel,r.complexo,r.recurso,0,`em falha, até ${r.n} dado${r.n>1?'s':''} para a Diretora`)}</div>
+     <div class="row"><button class="btn sm" data-act="roll" data-v="susto" data-id="${id}" ${dis||noDice}>Teste de Susto</button><span class="hint">Só quando a Diretora pedir. Rola 1 dado.</span></div>
+     ${resBox}</div>`}
 
-   <div class="box ${myTurn?'hot':''}"><h3>${enc?'Ações de Encontro':'Arriscar dados'}</h3><div class="ui muted">Cena: <b>${CENAS[cena]}</b> · falhas ${enc?'vão para o Descarte':'são sacrificadas à Diretora'}</div>
-    ${enc?`<div class="acts">
-      <button class="act" data-act="roll" data-v="vazar" data-id="${id}" ${dis||(!s.pilha||segMe?'disabled':'')}><b>Vazar Dali</b><span>${segMe?'Bloqueado: você está Segurada':tip('Ligeiro')+' · sucessos vão para a Fuga'}</span></button>
-      <button class="act" data-act="roll" data-v="partir" data-id="${id}" ${dis||(!s.pilha?'disabled':'')}><b>Partir Para Cima</b><span>${tip('Potente')} · Diretora perde 1 dado${s.flags?.surpreender?' · Surpreender ativo':''}</span></button>
-      <button class="act" data-act="roll" data-v="distrair" data-id="${id}" ${dis||(s.pilha<2?'disabled':'')}><b>Distrair</b><span>${tip('Desenrolado')} · Complexo · encarece MATAR</span></button>
-      <button class="act" data-act="folego" data-id="${id}" ${dis||((s.pilha||0)>=6?'disabled':'')}><b>Recuperar Fôlego</b><span>+1 dado na Pilha Comum</span></button>
-      <button class="act danger" data-act="mTudo" data-id="${id}" ${dis}><b>Arriscar Tudo</b><span>Escapa já, perde os dados</span></button></div>
-      <div class="row"><label class="sr" for="ra-${id}">Ajudar quem</label><select id="ra-${id}" data-rf="alvo" data-id="${id}" style="flex:1 1 180px"><option value="">Ajudar quem?</option>${allies.map(x=>`<option value="${x.id}" ${r.alvo===x.id?'selected':''}>${esc(x.name||'Sem nome')} (${x.pilha||0}/6)</option>`).join('')}</select>
-      <button class="btn sm dark" data-act="roll" data-v="ajudar" data-id="${id}" ${dis||(!r.alvo?'disabled':'')}>Ajudar Alguém</button>${allies.some(x=>(x.marcadores||[]).some(m=>m.tipo==='Segurada'))?`<button class="btn sm dark" data-act="roll" data-v="libertar" data-id="${id}" ${dis||(!segAlvo?'disabled':'')}>Libertar (Complexo, Potente)</button>`:''}</div>
-      <div class="label">Dados por ação</div>`:''}
-    <div class="row"><div class="field" style="flex:0 0 auto"><span class="label">Dados</span><div class="stepper"><button data-act="rn" data-d="-1" data-id="${id}" aria-label="Menos dados">−</button><span class="v num">${r.n}</span><button data-act="rn" data-d="1" data-id="${id}" aria-label="Mais dados">+</button></div></div>
-     ${!enc?`<div class="field grow"><label class="label" for="re-${id}">Estilo</label><select id="re-${id}" data-rf="estilo" data-id="${id}"><option value="">Nenhum (4+)</option>${ESTILOS.map(e=>`<option value="${e}" ${r.estilo===e?'selected':''}>${tip(e)}</option>`).join('')}</select></div>`:''}</div>
-    <div class="row">${!enc?`<div class="seg"><button aria-pressed="${!r.complexo}" data-act="rcx" data-v="0" data-id="${id}">Comum</button><button aria-pressed="${r.complexo}" data-act="rcx" data-v="1" data-id="${id}">Complexo</button></div>`:''}
-     <label class="check"><input type="checkbox" data-rf="recurso" data-id="${id}" ${r.recurso?'checked':''} ${(s.recursos||0)<1?'disabled':''}>Usar Recurso (−1 dificuldade)</label></div>
-    ${restr?`<div class="row"><div class="flag">Restrição ${restr.valor}: todo teste é Complexo.</div><button class="btn sm dark" data-act="roll" data-v="restr" data-e="Ligeiro" data-id="${id}" ${dis||(!s.pilha?'disabled':'')}>Reduzir (${tip('Ligeiro')})</button><button class="btn sm dark" data-act="roll" data-v="restr" data-e="Sagaz" data-id="${id}" ${dis||(!s.pilha?'disabled':'')}>Reduzir (${tip('Sagaz')})</button></div>`:''}
-    <div class="row">${!enc?`<button class="btn pri" data-act="roll" data-v="teste" data-id="${id}" ${dis||(!s.pilha?'disabled':'')}>Arriscar ${r.n} dado${r.n>1?'s':''}</button>`:''}<button class="btn" data-act="roll" data-v="susto" data-id="${id}" ${dis||(!s.pilha?'disabled':'')}>Teste de Susto</button></div>
-    ${res?`<div class="result ${res.win?'win':'lose'}" aria-live="polite"><div class="label">${esc(res.label)}</div><div class="dice">${res.dice.map(x=>`<span class="die ${Date.now()-res.at<1200?'new':''} ${x.ok?'ok':'no'}">${x.v}</span>`).join('')}</div>
-     <div class="big">${res.win?'Sucesso':'Falha'}</div><div class="ui" style="font-weight:600">${esc(res.summary)}</div>${res.note?`<div class="ui">${esc(res.note)}</div>`:''}<div class="ui muted" style="font-size:15px">Errou algo? Ctrl+Z desfaz a rolagem e devolve os dados.</div></div>`:''}
-   </div>
+  const habBox=a?`<div class="hab hab-box"><span class="label">Habilidade</span><span class="n">${a.hab}</span><span>${a.ht.replace(/ \((Aplicad|Repeti)[^)]*\)/,'')}</span>
+    ${h?.auto?`<div class="hint">${h.auto}</div>`:`<div class="row"><button class="btn sm dark" data-act="hab" data-id="${id}" ${dis||(habUsed(s,h)?'disabled':'')}>${habUsed(s,h)?'Usada':'Usar habilidade'}</button><span class="hint">${habUsed(s,h)?(h.rec==='enc'?'Volta no próximo Encontro.':'Volta na próxima sessão.'):(h.rec==='enc'?'1 vez por Encontro.':'1 vez por sessão.')} ${h.how||''}</span></div>`}</div>`:'';
+  const ident=`<div class="box" style="padding:0;gap:0">${a?`<div class="arq-band" style="background:${a.c}"><span class="t">${a.n}</span><span class="s">${a.tr} · Iniciativa ${a.ord}</span></div>`:''}
+    <div style="padding:16px;display:grid;gap:14px">
+     <div class="field"><div class="bh"><label class="label" for="sa">Arquétipo</label>${gq('arq')}</div><select id="sa" data-act="arq" data-id="${id}"><option value="">— escolher —</option>${Object.entries(ARQ).map(([kk,v])=>`<option value="${kk}" ${s.arq===kk?'selected':''}>${v.n}</option>`).join('')}</select></div>
+     <div><div class="label" style="margin-bottom:6px">Estilos <span style="text-transform:none;letter-spacing:0;font-weight:500">(toque para incapacitar ou recuperar)</span></div><div class="row">${est.length?est.map(e=>`<button class="chip ${(s.incap||[]).includes(e)?'inc':'out'}" style="cursor:pointer;font-size:16px;padding:6px 12px" data-act="incap" data-v="${e}" data-id="${id}">${e}</button>`).join(''):'<span class="muted">Escolha um arquétipo.</span>'}</div>
+      <div class="hint">${est.map(e=>`<b>${e}</b>: ${ESTILO_INFO[e]}`).join(' ')}</div></div>
+     ${habBox}
+    </div></div>`;
 
-   <div class="box"><h3>Dados Marcadores</h3>
+  const marks=`<div class="box"><div class="bh"><h3>Ferimentos e condições</h3>${gq('marcadores')}</div>
+    <div class="kv"><div><span class="label">Sequelas</span><div class="hint">Sobe a cada Ferir. A Ferida nunca fica abaixo disso.</div></div><div class="stepper"><button data-act="sstep" data-f="sequelas" data-d="-1" data-id="${id}" aria-label="Menos sequelas">−</button><span class="v num">${s.sequelas||0}</span><button data-act="sstep" data-f="sequelas" data-d="1" data-id="${id}" aria-label="Mais sequelas">+</button></div></div>
+    <span class="label">Dados Marcadores</span>
     ${(s.marcadores||[]).length?(s.marcadores.map((m,i)=>`<div class="mark"><select style="width:auto;flex:1 1 140px" aria-label="Tipo" data-act="mtype" data-i="${i}" data-id="${id}">${MARK_T.map(t=>`<option ${m.tipo===t?'selected':''}>${t}</option>`).join('')}</select>
       <div class="stepper"><button data-act="mstep" data-i="${i}" data-d="-1" data-id="${id}" aria-label="Diminuir">−</button><span class="v num"><span class="die sm" style="margin:auto">${m.valor}</span></span><button data-act="mstep" data-i="${i}" data-d="1" data-id="${id}" aria-label="Aumentar">+</button></div>
-      <button class="btn sm ghost" data-act="mdel" data-i="${i}" data-id="${id}" aria-label="Remover marcador">✕</button></div>`).join('')):'<span class="muted">Nenhuma condição. Feridas, possessões e restrições aparecem aqui.</span>'}
+      <button class="btn sm ghost" data-act="mdel" data-i="${i}" data-id="${id}" aria-label="Remover marcador">✕</button><div class="hint" style="flex-basis:100%">${esc(MARK_INFO[m.tipo]||'')}</div></div>`).join('')):'<span class="muted">Nenhuma condição. Feridas, Possessões e Restrições aparecem aqui quando o Assassino age.</span>'}
     <div class="row" style="gap:6px">${MARK_T.slice(0,4).map(t=>`<button class="btn sm" data-act="madd" data-v="${t}" data-id="${id}">+ ${t}</button>`).join('')}</div>
-    <p class="muted ui" style="margin:0">Restrição torna todo teste Complexo. Possessão sobe 1 por dado falho. Feridas não descem abaixo das Sequelas.</p>
-   </div>
-  </section>
+   </div>`;
 
-  <section class="sec">
-   <div class="box" style="padding:0;gap:0">${a?`<div class="arq-band" style="background:${a.c}"><span class="t">${a.n}</span><span class="s">${a.tr} · Iniciativa ${a.ord}</span></div>`:''}
-    <div style="padding:16px;display:grid;gap:14px">
-     <div class="field"><label class="label" for="sa">Arquétipo</label><select id="sa" data-act="arq" data-id="${id}"><option value="">— escolher —</option>${Object.entries(ARQ).map(([kk,v])=>`<option value="${kk}" ${s.arq===kk?'selected':''}>${v.n}</option>`).join('')}</select></div>
-     <div><div class="label" style="margin-bottom:6px">Estilos <span style="text-transform:none;letter-spacing:0;font-weight:500">(toque para incapacitar/recuperar)</span></div><div class="row">${est.length?est.map(e=>`<button class="chip ${(s.incap||[]).includes(e)?'inc':'out'}" style="cursor:pointer;font-size:16px;padding:6px 12px" data-act="incap" data-v="${e}" data-id="${id}">${e}</button>`).join(''):'<span class="muted">Escolha um arquétipo.</span>'}</div></div>
-     ${a?`<div class="hab"><span class="label">Habilidade</span><span class="n">${a.hab}</span><span>${a.ht}</span></div>`:''}
-     <div class="field"><label class="label" for="sc">Conceito</label><textarea id="sc" data-sf="conceito">${esc(s.conceito)}</textarea></div>
-    </div></div>
-
-   <div class="box"><h3>Apegos</h3>
-    <div class="field"><label class="label" for="ai">Item Icônico</label><div class="row"><input id="ai" class="grow" type="text" value="${esc(s.apegos?.item)}" data-sf="apegos.item"><button class="btn sm" data-act="apego" data-v="item" data-id="${id}" ${s.apegos?.itemUsado||!s.apegos?.item?'disabled':''}>${s.apegos?.itemUsado?'Usado':'Usar +2 PT'}</button></div></div>
-    <div class="field"><label class="label" for="ar">Relação Afetiva</label><div class="row"><input id="ar" class="grow" type="text" value="${esc(s.apegos?.relacao)}" data-sf="apegos.relacao"><button class="btn sm" data-act="apego" data-v="relacao" data-id="${id}" ${s.apegos?.relacaoUsada||!s.apegos?.relacao?'disabled':''}>${s.apegos?.relacaoUsada?'Visitada':'Visitar +2 PT'}</button></div></div>
-    <div class="field"><label class="label" for="ad">Desejo Obscuro <span style="text-transform:none;letter-spacing:0;font-weight:500">(fica guardado na ficha até você revelar)</span></label><textarea id="ad" data-sf="apegos.desejo">${esc(s.apegos?.desejo)}</textarea><div><button class="btn sm" data-act="apego" data-v="desejo" data-id="${id}" ${s.apegos?.desejoRevelado||!s.apegos?.desejo?'disabled':''}>${s.apegos?.desejoRevelado?'Revelado':'Revelar +3 PT'}</button></div></div>
-   </div>
-
-   <div class="box"><h3>Vantagens</h3><p class="muted ui" style="margin:0">${enc?'<b>Bloqueadas durante o Encontro.</b>':'Gastam Pontos de Tensão. Proibidas durante Encontros.'} Você tem <b>${s.pt||0} PT</b>.</p>
-    ${[...VANT_G,...myV].map(v=>{const off=(v.e&&(s.incap||[]).includes(v.e));const custo=v.custo;const falta=custo!=null&&(s.pt||0)<custo;
-      return `<div class="vant"><div class="kv"><span class="n">${v.n}${v.e?` <span class="chip out">${v.e}</span>`:''}</span>
+  let body='';
+  if(tab==='pers')body=`<div class="cols"><section class="sec">${pilhas}${acoes}</section>
+   <section class="sec">${ident}${marks}${ptBox}
+    <div class="box"><h3>Conceito</h3><textarea id="sc" data-sf="conceito" placeholder="Quem ela é, de onde vem, por que está aqui.">${esc(s.conceito)}</textarea></div>
+    <div class="box"><h3>Notas</h3><textarea id="snotes" data-sf="notas" style="min-height:160px" placeholder="Pistas, inventário, quem ainda está vivo…">${esc(s.notas)}</textarea></div>
+    ${isGM()?`<div class="row"><button class="btn sm danger" data-act="mDelSheet" data-v="${id}">Apagar ficha</button></div>`:''}</section></div>`;
+  if(tab==='vant'){const incAll=[s,...allies].filter(x=>(x.incap||[]).length);
+    body=`<div class="cols"><section class="sec">
+   <div class="box"><div class="bh"><h3>Vantagens</h3>${gq('pt')}</div><p class="muted ui" style="margin:0">${enc?'<b>Bloqueadas durante o Encontro.</b> ':''}Gastam Pontos de Tensão e só valem fora do Encontro. Você tem <b>${s.pt||0} PT</b>.</p>
+    ${[...VANT_G,...myV].map(v=>{const off=(v.e&&(s.incap||[]).includes(v.e));const custo=v.custo;const falta=custo!=null&&(s.pt||0)<custo;const ok=!(enc||off||dis||falta);
+      return `<div class="vant ${ok?'ok':''}"><div class="kv"><span class="n">${v.n}${v.e?` <span class="chip out">${v.e}</span>`:''}</span>
        <span class="row" style="gap:8px">${custo==null?`<label class="sr" for="vc-${v.k}">${v.k==='forcas'?'PT a transferir':'Custo'}</label><input id="vc-${v.k}" type="number" min="0" max="10" value="${v.k==='forcas'?1:2}" style="width:76px;min-height:38px">`:`<span class="num">${custo} PT</span>`}
-       <button class="btn sm" data-act="vant" data-v="${v.k}" data-id="${id}" ${(enc||off||dis||falta)?'disabled':''}>Usar</button></span></div>
-       <div>${v.fx}</div><div class="meta">Recarga: ${v.rec}${off?' · Estilo incapacitado':''}${falta?` · faltam ${custo-(s.pt||0)} PT`:''}${v.k==='surpreender'&&s.flags?.surpreender?' · ATIVA':''}${v.k==='planejar'&&s.flags?.planejar?' · ATIVA':''}</div></div>`}).join('')}
-    ${myV.some(v=>v.k==='forcas')?`<div class="row"><label class="sr" for="ft-${id}">Transferir PT para</label><select id="ft-${id}" style="flex:1 1 160px">${allies.map(x=>`<option value="${x.id}">${esc(x.name||'Sem nome')}</option>`).join('')}</select><span class="ui muted">alvo de Compartilhar Forças</span></div>`:''}
+       <button class="btn sm ${ok?'dark':''}" data-act="vant" data-v="${v.k}" data-id="${id}" ${ok?'':'disabled'}>Usar</button></span></div>
+       <div>${v.fx}</div>
+       ${v.k==='jeito'?`<div class="row"><label class="sr" for="tj-${id}">Recuperar o Estilo de</label><select id="tj-${id}" style="flex:1 1 160px">${incAll.map(x=>`<option value="${x.id}">${x.id===id?'Você':esc(x.name||'Sem nome')} — ${(x.incap||[]).join(', ')}</option>`).join('')||'<option value="">Ninguém com Estilo incapacitado</option>'}</select></div>`:''}
+       ${v.k==='forcas'?`<div class="row"><label class="sr" for="ft-${id}">Transferir PT para</label><select id="ft-${id}" style="flex:1 1 160px">${allies.map(x=>`<option value="${x.id}">${esc(x.name||'Sem nome')} (${x.pt||0} PT)</option>`).join('')}</select></div>`:''}
+       <div class="meta">Recarga: ${v.rec}${off?' · Estilo incapacitado':''}${falta?` · faltam ${custo-(s.pt||0)} PT`:''}${v.k==='surpreender'&&s.flags?.surpreender?' · ATIVA':''}${v.k==='planejar'&&s.flags?.planejar?' · ATIVA':''}</div></div>`}).join('')}
+   </div></section>
+   <section class="sec"><div class="box"><div class="bh"><h3>Apegos</h3>${gq('pt')}</div><p class="muted ui" style="margin:0">Use na história e toque no botão para receber os PT.</p>
+    <div class="field"><label class="label" for="ai">Item Icônico · +2 PT, 1 vez por sessão</label><div class="row"><input id="ai" class="grow" type="text" value="${esc(s.apegos?.item)}" data-sf="apegos.item" placeholder="O objeto que nunca sai de perto dela"><button class="btn sm" data-act="apego" data-v="item" data-id="${id}" ${s.apegos?.itemUsado||!s.apegos?.item?'disabled':''}>${s.apegos?.itemUsado?'Usado':'Usar +2 PT'}</button></div></div>
+    <div class="field"><label class="label" for="ar">Relação Afetiva · +2 PT, 1 vez por sessão</label><div class="row"><input id="ar" class="grow" type="text" value="${esc(s.apegos?.relacao)}" data-sf="apegos.relacao" placeholder="Pessoa ou animal que é seu porto-seguro"><button class="btn sm" data-act="apego" data-v="relacao" data-id="${id}" ${s.apegos?.relacaoUsada||!s.apegos?.relacao?'disabled':''}>${s.apegos?.relacaoUsada?'Visitada':'Visitar +2 PT'}</button></div></div>
+    <div class="field"><label class="label" for="ad">Desejo Obscuro · +3 PT, uma única vez</label><textarea id="ad" data-sf="apegos.desejo" placeholder="O segredo que ela guarda a sete chaves">${esc(s.apegos?.desejo)}</textarea><div><button class="btn sm" data-act="apego" data-v="desejo" data-id="${id}" ${s.apegos?.desejoRevelado||!s.apegos?.desejo?'disabled':''}>${s.apegos?.desejoRevelado?'Revelado':'Revelar +3 PT'}</button></div></div>
    </div>
+   <div class="box"><h3>Outras formas de ganhar PT</h3><p style="margin:0">Desafios: tomar um shot ou fazer algo clichê de filme slasher (checar o barulho no sótão, atender a porta de madrugada). A Diretora decide quantos PT vale e dá pela área dela.</p></div></section></div>`}
+  return head+body}
 
-   <div class="box"><h3>Notas</h3><textarea id="snotes" data-sf="notas" placeholder="Pistas, inventário, quem ainda está vivo…">${esc(s.notas)}</textarea></div>
-   ${isGM()?`<div class="row"><button class="btn sm danger" data-act="mDelSheet" data-v="${id}">Apagar ficha</button></div>`:''}
-  </section></div>`}
+/* ================= GUIA DE JOGO ================= */
+const ESTILO_INFO={Desenrolado:'reagir a surpresas, encarar situações incômodas, colaborar no caos.',Firme:'resistir a danos, manter a calma, impor sua vontade.',
+  Ligeiro:'acrobacias, passar despercebida, enganar (inclusive numa fuga).',Potente:'força bruta, intimidar, quebrar barreiras.',Sagaz:'resolver problemas, desatar complicações, persuadir.'};
+const MARK_INFO={Ferida:'Novas Feridas somam no valor. Nunca fica abaixo das suas Sequelas.',Possessão:'Sobe 1 a cada dado que você falhar. Em 6, o Assassino pode matar alguém pelas suas mãos.',
+  Restrição:'Enquanto existir, todo teste seu precisa de 2 sucessos. Reduza com testes Ligeiros ou Sagazes.',Infecção:'Condição narrativa definida pela Diretora.',
+  Segurada:'Você não pode Vazar Dali e sua Ferida sobe 1 no começo de cada turno seu. Aliadas podem te Libertar.',Outro:'Condição narrativa definida pela Diretora.'};
+const GUIDE=[
+ {k:'basico',n:'Básico',items:[
+  {t:'Pilha Comum',d:'Seus dados de estabilidade. Toda Sobrevivente começa com 6 e nunca passa de 6. Todo teste usa dados daqui, e cada falha custa um dado.'},
+  {t:'Pilha de Fuga',d:'Só existe durante um Encontro. Encha até o valor da ficha do Assassino (normalmente 6) para escapar. Quando o Encontro acaba, esses dados voltam para a Pilha Comum.'},
+  {t:'Pilha de Descarte',d:'Uma só para a mesa. Recebe os dados perdidos em Encontros e Testes de Susto. Recuperar Fôlego e a fuga vantajosa puxam dados de lá.'},
+  {t:'Pilha da Diretora',d:'Os dados do Assassino. Cresce com cada falha em Cena Livre e Suspense. Quando ela passar a Pilha de alguma Sobrevivente, a Diretora pode começar um Encontro.'},
+  {t:'Cena Livre',tag:'cena',d:'Exploração e conversa. Testes quando há risco. Falhas são sacrificadas: vão para a Pilha da Diretora. Vantagens liberadas.'},
+  {t:'Suspense',tag:'cena',d:'O perigo se aproxima. Mesmas regras da Cena Livre (falhas vão para a Diretora). Armadilhas costumam aparecer aqui.'},
+  {t:'Encontro',tag:'cena',d:'O Assassino ataca. Todas agem em ordem de Iniciativa e o Assassino age por último. Falhas são descartadas. Vantagens ficam bloqueadas.'},
+  {t:'Desfazer',d:'Errou um clique ou uma rolagem? Ctrl+Z (ou o botão Desfazer no topo) volta a última ação e devolve os dados.'}]},
+ {k:'testes',n:'Testes',items:[
+  {t:'Arriscar dados',d:'Diga quantos dados da Pilha Comum quer arriscar e role todos juntos. Por padrão, cada dado com 4 ou mais é um sucesso. Mais dados dão mais chance, mas cada falha é um dado perdido. O app mostra a chance antes de você rolar.'},
+  {t:'Estilos',d:'Se o Estilo da ação for um dos dois da sua Sobrevivente, a dificuldade cai para 3+. Estilo incapacitado não conta.'},
+  ...ESTILOS.map(e=>({t:'Estilo '+e,d:ESTILO_INFO[e][0].toUpperCase()+ESTILO_INFO[e].slice(1)})),
+  {t:'Comum ou Complexo',d:'Teste Comum: 1 sucesso basta. Teste Complexo: precisa de 2 sucessos. A Diretora diz qual é.'},
+  {t:'Recurso',d:'Um item útil da cena. Gaste um para reduzir a dificuldade de um teste em 1. Ganhe com a Vantagem Caçar Recursos ou pela história.'},
+  {t:'Para onde vão as falhas',d:'Cena Livre e Suspense: sacrificadas, vão para a Pilha da Diretora. Encontro e Teste de Susto: descartadas, vão para o Descarte.'},
+  {t:'Teste de Susto',d:'A Diretora pede quando algo assusta. Role 1 dado. Se falhar, o dado é descartado e o Assassino ganha 1 PH.'}]},
+ {k:'encontro',n:'Encontro',items:[
+  {t:'Como começa',d:'A Diretora pode iniciar um Encontro quando a Pilha dela for maior que a de qualquer Sobrevivente. Cada uma ganha uma Pilha de Fuga vazia.'},
+  {t:'Iniciativa',d:'Ordem fixa pelo Arquétipo: 1 Heroína, 2 Atleta, 3 Valentona, 4 Esbelta, 5 Inocente, 6 Nerd, 7 Relaxada, 8 Cética. O Assassino é sempre o último. O app marca de quem é a vez.'},
+  {t:'Na sua vez',d:'Escolha 1 Ação de Encontro. Você pode usar sua Habilidade, mas não Vantagens. Objetivos: fugir ou enfraquecer o Assassino.'},
+  {t:'Vazar Dali',tag:'ação',d:'Teste Ligeiro. Cada sucesso vai para a Pilha de Fuga. Cada 6 é uma fuga vantajosa: puxa mais 1 dado da Pilha Comum (ou do Descarte, se ela estiver vazia) para a Fuga.'},
+  {t:'Partir Para Cima',tag:'ação',d:'Teste Potente. Com pelo menos 1 sucesso, a Diretora descarta 1 dado da Pilha dela.'},
+  {t:'Distrair',tag:'ação',d:'Teste Complexo Desenrolado. Se passar, MATAR passa a custar à Diretora +1 dado e +3 PH neste Encontro. Acumula.'},
+  {t:'Ajudar Alguém',tag:'ação',d:'Teste no Estilo que fizer sentido. Seus sucessos viram dados na Pilha Comum de quem você ajudou. Dados falhos não são perdidos.'},
+  {t:'Recuperar Fôlego',tag:'ação',d:'Sem rolagem. +1 dado na sua Pilha Comum.'},
+  {t:'Arriscar Tudo',tag:'ação',d:'Escolha uma Sobrevivente (pode ser você) para escapar na hora. Você descarta todos os seus dados. Uma vez por Encontro (para o grupo todo) e uma vez por sessão. Não vale se você for a última na cena.'},
+  {t:'Libertar uma aliada',tag:'ação',d:'Se o Assassino Segurou alguém, as outras podem tentar soltá-la com um Teste Complexo.'},
+  {t:'Perigo de morte',d:'Na vez dele, o Assassino pode MATAR quem tiver menos dados que ele. Ferir mata com 6 no dado (1 em 6). Mantenha sua Pilha alta ou fuja.'},
+  {t:'Como acaba',d:'O Encontro termina quando: o Assassino escapa na vez dele; ele fica sem dados; todas fogem; ou todas que restaram morrem. A Fuga volta para a Pilha Comum.'}]},
+ {k:'pt',n:'PT e Vantagens',items:[
+  {t:'Pontos de Tensão (PT)',d:'Moeda para Vantagens. Começa em 0 e vai até 10. Ganhe com Desafios (shots, ações clichê arriscadas) e Apegos.'},
+  {t:'Item Icônico',tag:'apego',d:'Use seu objeto especial numa ação: +2 PT. Uma vez por sessão.'},
+  {t:'Relação Afetiva',tag:'apego',d:'Passe tempo com sua pessoa (ou bicho) querida: +2 PT. Uma vez por sessão.'},
+  {t:'Desejo Obscuro',tag:'apego',d:'Revele o segredo: +3 PT. Uma única vez.'},
+  {t:'Como usar Vantagens',d:'Só fora de um Encontro. Cada uma tem Custo em PT e Recarga. Todas têm as Gerais e mais as dos seus dois Estilos. Estilo incapacitado bloqueia a Vantagem dele.'},
+  ...VANT_G.map(v=>({t:v.n,tag:'geral · '+(v.custo!=null?v.custo+' PT':'custo da mesa'),d:v.fx+' Recarga: '+v.rec+'.'})),
+  ...VANT_E.map(v=>({t:v.n,tag:v.e+' · '+(v.custo!=null?v.custo+' PT':'custo variável'),d:v.fx+' Recarga: '+v.rec+'.'}))]},
+ {k:'marcadores',n:'Marcadores',items:[
+  {t:'Dados Marcadores',d:'Condições sofridas: ferimento, infecção, possessão etc. Quanto maior o número, pior. Não são dados da sua Pilha e não podem ser usados em testes. Um novo marcador da mesma condição substitui o antigo (Feridas somam).'},
+  {t:'Ferida e Sequela',d:'Toda vez que o Assassino te FERIR você ganha 1 Sequela. A Ferida soma o valor rolado e nunca fica abaixo das suas Sequelas.'},
+  ...['Possessão','Restrição','Segurada'].map(t=>({t,d:MARK_INFO[t]})),
+  {t:'Estilo incapacitado',d:'Não reduz mais a dificuldade e bloqueia a Vantagem dele. Recupere com Tomar Jeito.'}]},
+ {k:'arq',n:'Arquétipos',items:Object.values(ARQ).map(a=>({t:a.n,tag:'Iniciativa '+a.ord+' · '+a.e.join(' e '),d:a.hab+': '+a.ht.replace(/ \((Aplicad|Repeti)[^)]*\)/,'')}))},
+ {k:'assassino',n:'Assassino',items:[
+  {t:'Turno do Assassino',d:'Sempre o último no Encontro. A Diretora gasta dados e PH em Ações de Assassino: matar, ferir, aplicar marcadores ou atrapalhar a fuga.'},
+  {t:'Assustar',tag:'Encontro, Livre',d:'Força um Teste de Susto em todas. Há um limite por Encontro, que muda conforme o Assassino.'},
+  {t:'Ferir',tag:'Encontro',d:'Rola 1 dado da Pilha dele. 6: morte. 1 a 5: Ferida com esse valor, somada à atual. +1 Sequela sempre.'},
+  {t:'Matar',tag:'Encontro, Livre',d:'Mata quem tem menos dados que ele, no Encontro. Pela Possessão em 6, vale em qualquer cena.'},
+  {t:'Mutilar',tag:'Encontro, Livre',d:'Num 6 de Ferir, pode deixar a vítima viva com +3 Sequelas e uma última chance de correr.'},
+  {t:'Dificultar',tag:'Encontro · 4 PH',d:'No início do Encontro, a Pilha de Fuga de todas exige 1 dado a mais.'},
+  {t:'Escapar',tag:'Encontro',d:'O Assassino sai na vez dele, encerra o Encontro e ganha 1 dado.'},
+  ...Object.values(ACOES_U).map(a=>({t:a.n,tag:'Ação Única · '+a.cena+(a.custo?' · '+a.custo+' PH':''),d:a.fx}))]},
+ {k:'diretora',n:'Diretora',gm:true,items:[
+  {t:'Pontos de Horror (PH)',d:'Moeda do Assassino para Ações Únicas, Apavoros e Dificultar. Ganhos com Intentos Horríveis e Intentos Únicos, sem limite.'},
+  ...INTENTOS.map(([l,v,auto])=>({t:l,tag:'+'+v+' PH'+(auto?' · automático':''),d:'Intento Horrível.'})),
+  ...Object.entries(AMEACAS).map(([n,a])=>({t:'Intento Único · '+n,d:a.intento})),
+  ...Object.values(APAV).map(a=>({t:a.n,tag:'Apavoro · '+a.cena+' · '+(a.custo?a.custo+' PH':'2 PH por Intérprete'),d:a.fx+' Recarga: '+a.rec+'.'})),
+  {t:'Iniciar um Encontro',d:'Quando sua Pilha passar a de qualquer Sobrevivente. Use o seletor de cena na ficha do Assassino ou no Painel da mesa.'},
+  {t:'Dar PT por Desafio',d:'No Painel da mesa, use +1 PT no cartão da Sobrevivente. Para valores maiores, use Recompensas.'}]}
+];
+
+function guideNow(){const c=S.camp;if(!c)return [{t:'Escolha uma campanha',d:'Entre numa campanha para ver o que dá para fazer agora.'}];
+  const k=ck(),enc=c.cena==='encontro',out=[];
+  if(isGM()){const viv=S.sheets.filter(s=>s.kind==='pc'&&s.status==='viva');const minP=viv.length?Math.min(...viv.map(s=>s.pilha||0)):null;
+    out.push({t:'Cena: '+CENAS[c.cena||'livre'],d:enc?`Rodada ${c.rodada||1}. Vez de ${turnName()}.`:'Narre, peça testes e colete as falhas na sua Pilha.'});
+    if(!enc){out.push({t:'Assustar',d:'Peça um Teste de Susto quando algo assustar o grupo. Falhas dão PH.'});
+      if(minP!=null&&(k.pilha||0)>minP)out.push({t:'Você já pode iniciar um Encontro',d:`Sua Pilha (${k.pilha}) passou a menor Pilha da mesa (${minP}).`});
+      else out.push({t:'Ainda não dá para iniciar um Encontro',d:`Sua Pilha (${k.pilha||0}) precisa passar a menor Pilha da mesa (${minP??'—'}). Peça mais testes.`})}
+    else if(c.turno?.id==='killer')out.push({t:'Sua vez',d:'Abra a ficha do Assassino, escolha o alvo e uma ação. Ferir mata com 6. Matar exige alvo com menos dados que você. A vez passa sozinha depois.'});
+    else out.push({t:'Vez de uma Sobrevivente',d:'A vez passa sozinha quando ela usa uma Ação de Encontro. Se ela só narrou, toque em Próximo turno.'});
+    return out}
+  const s=getSheet(S.sheetId)?.owner===S.u?getSheet(S.sheetId):S.sheets.find(x=>x.kind==='pc'&&x.owner===S.u&&x.status==='viva')||S.sheets.find(x=>x.kind==='pc'&&x.owner===S.u);
+  if(!s)return [{t:'Você ainda não tem Sobrevivente',d:'Vá em Criar ficha. O assistente leva menos de 2 minutos.'}];
+  const n=nowPlayer(s);out.push({t:n.t,d:n.d});
+  if(enc){const turn=c.turno?.id===s.id;out.push({t:turn?'Escolha uma destas ações':'Quando chegar a sua vez',d:'Vazar Dali para fugir, Partir Para Cima para tirar dados do Assassino, Distrair para encarecer o MATAR, Ajudar Alguém, Recuperar Fôlego ou Arriscar Tudo.'});
+    out.push({t:'Dificuldade para você',d:['Ligeiro','Potente','Desenrolado'].map(e=>`${e} ${hasEst(s,e)?'3+':'4+'}`).join(' · ')})}
+  else{out.push({t:'Testes',d:`Seus Estilos (${(s.estilos||[]).join(' e ')||'—'}) testam com 3+. Os outros, com 4+.`});
+    const vs=[...VANT_G,...VANT_E.filter(v=>(s.estilos||[]).includes(v.e))].filter(v=>v.custo!=null&&v.custo<=(s.pt||0));
+    out.push({t:`Vantagens (${s.pt||0} PT)`,d:vs.length?vs.map(v=>`${v.n} (${v.custo})`).join(', '):'Nenhuma ao seu alcance agora. Ganhe PT com Desafios e Apegos.'})}
+  return out}
+
+function gItem(it){return `<div class="g-it"><div class="g-h"><b>${esc(it.t)}</b>${it.tag?`<span class="g-tag">${esc(it.tag)}</span>`:''}</div><p>${esc(it.d)}</p></div>`}
+function vGuide(){const g=S.guide;
+  const btn=`<button class="guide-btn" data-act="guideToggle" aria-expanded="${g.open}" aria-controls="guide" title="Guia de jogo (G)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M8 7h7M8 11h5"/></svg><span>Guia</span></button>`;
+  if(!g.open)return btn;
+  const secs=GUIDE.filter(s=>!s.gm||isGM());const q=normTxt(g.q||'');
+  let body;
+  if(q){const hits=secs.flatMap(s=>s.items.filter(it=>normTxt(it.t+' '+it.d+' '+(it.tag||'')).includes(q)).map(it=>({...it,sec:s.n})));
+    body=hits.length?hits.map(h=>gItem({...h,tag:h.sec+(h.tag?' · '+h.tag:'')})).join(''):`<p class="muted">Nada encontrado para “${esc(g.q)}”.</p>`}
+  else if(g.tab==='agora')body=`<p class="g-lead">O que você pode fazer neste momento.</p>${guideNow().map(gItem).join('')}`;
+  else{const sc=secs.find(s=>s.k===g.tab)||secs[0];body=sc.items.map(gItem).join('')}
+  return btn+`<div class="g-scrim" data-act="guideClose"></div><aside class="guide" id="guide" role="dialog" aria-label="Guia de jogo">
+   <div class="g-top"><b>Guia de jogo</b><button class="btn sm" data-act="guideClose" aria-label="Fechar guia">Fechar</button></div>
+   <label class="sr" for="gq">Buscar no guia</label><input id="gq" type="text" value="${esc(g.q)}" placeholder="Buscar: fuga, susto, ferida…" data-guideq="1">
+   <div class="g-tabs">${[{k:'agora',n:'Agora'},...secs].map(s=>`<button aria-pressed="${!q&&g.tab===s.k}" data-act="guideTab" data-v="${s.k}">${s.n}</button>`).join('')}</div>
+   <div class="g-body">${body}</div></aside>`}
 
 function vNPC(s){const id=s.id;const r=S.lastRes[id];
   return `<div class="sheet-head">${photoCtl(s)}<div class="grow stack" style="gap:6px"><label class="label" for="nn">NPC</label><input id="nn" class="name-in" type="text" value="${esc(s.name)}" data-sf="name" placeholder="Nome do NPC">
@@ -1130,6 +1385,11 @@ function vModal(){const m=S.modal;if(!m)return '';let c='';
     ${m.err?`<div class="err" role="alert">${esc(m.err)}</div>`:''}<div class="row" style="justify-content:flex-end"><button type="button" class="btn" data-act="close">Cancelar</button><button class="btn pri" type="submit">Entrar</button></div></form>`;
   if(m.t==='create')c=`<h2>Criar campanha</h2><form id="createf" class="stack"><div class="field"><label class="label" for="cn">Nome da campanha</label><input id="cn" type="text" maxlength="60" placeholder="ex.: Noite no Acampamento Lago Turvo"></div>
     <p class="muted ui" style="margin:0">Você será a Diretora. O código para os jogadores aparece na Área do mestre.</p><div class="row" style="justify-content:flex-end"><button type="button" class="btn" data-act="close">Cancelar</button><button class="btn pri" type="submit">Criar</button></div></form>`;
+  if(m.t==='tudo'){const sh=getSheet(m.id)||{};const viv=S.sheets.filter(x=>x.kind==='pc'&&x.status==='viva');
+    const why=firstWhy(S.camp.cena!=='encontro'&&'Arriscar Tudo só vale durante um Encontro.',S.camp.tudoEnc&&'Alguém já usou Arriscar Tudo neste Encontro.',sh.flags?.tudoSes&&'Você já usou Arriscar Tudo nesta sessão.',viv.length<=1&&'Você é a última Sobrevivente na cena, então não pode Arriscar Tudo.');
+    c=`<h2>Arriscar Tudo</h2><p style="margin:0">Escolha quem escapa agora. Você descarta todos os seus ${sh.pilha||0} dados${sh.arq==='heroina'?' (Até o Fim: se for você quem escapa, mantém 1)':''}. Uma vez por Encontro e uma vez por sessão.</p>
+    <div class="field"><label class="label" for="tudoT">Quem escapa</label><select id="tudoT">${viv.map(x=>`<option value="${x.id}" ${x.id===sh.id?'selected':''}>${x.id===sh.id?'Eu mesma':esc(x.name||'Sem nome')}</option>`).join('')}</select></div>
+    ${why?`<div class="err">${esc(why)}</div>`:''}<div class="row" style="justify-content:flex-end"><button class="btn" data-act="close">Cancelar</button><button class="btn pri" data-act="tudoYes" ${why?'disabled':''}>Arriscar tudo</button></div>`}
   if(m.t==='name')c=`<h2>Nome de exibição</h2><form id="namef" class="stack"><div class="field"><label class="label" for="nmi">Como a mesa vai te chamar</label><input id="nmi" type="text" maxlength="40" value="${esc(S.acct?.name)}"></div>
     <div class="row" style="justify-content:flex-end"><button type="button" class="btn" data-act="close">Cancelar</button><button class="btn pri" type="submit">Salvar</button></div></form>`;
   if(m.t==='confirm')c=`<h2>${esc(m.title)}</h2><p style="margin:0">${esc(m.text)}</p><div class="row" style="justify-content:flex-end"><button class="btn" data-act="close">Cancelar</button><button class="btn pri" data-act="confirmYes">${esc(m.yes||'Confirmar')}</button></div>`;
@@ -1148,7 +1408,7 @@ function vModal(){const m=S.modal;if(!m)return '';let c='';
 function render(){const a=document.activeElement;const fid=a&&a.id;let ss,se;try{ss=a.selectionStart;se=a.selectionEnd}catch(e){}
   const sy=window.scrollY;const ll=$('.log-ls')?.scrollTop;
   let h='';if(S.view==='login')h=vLogin();else if(S.view==='home')h=vHome();else if(S.view==='camp')h=vCamp();else if(S.view==='nodb'||S.view==='nofb')h=vNoDb();else if(S.view==='boot')h=`<div class="center"><div><div class="logo">BRUTAL</div><p class="label">Abrindo a mesa…</p></div></div>`;
-  $('#app').innerHTML=h+vModal();
+  $('#app').innerHTML=h+vModal()+((S.view==='camp'||S.view==='home')?vGuide():'');
   if(fid){const e=document.getElementById(fid);if(e){e.focus({preventScroll:true});try{if(ss!=null)e.setSelectionRange(ss,se)}catch(x){}}}
   window.scrollTo(0,sy);const l=$('.log-ls');if(l&&ll!=null)l.scrollTop=ll;
   if(S.modal?.t==='crop')requestAnimationFrame(drawCrop)}
@@ -1159,10 +1419,10 @@ function vNoDb(){return `<div class="center"><div class="stack" style="max-width
 function confirmBox(title,text,yes,fn){S.modal={t:'confirm',title,text,yes,fn};render()}
 /* ações que mudam dados: entram na pilha do Ctrl+Z */
 const MUT=new Set(['confirmYes','pickYes','rmCover','cena','kstep','dstep','intento','kferir','gmpcYes','newNPC','reward','blank','wzDone','setPilha','setFuga','setPT','sstep','roll',
-  'folego','incap','apego','vant','madd','mstep','mdel','npcRoll','saveCrop','rmFoto','ptplus','nextTurn','susto','freeroll','quick','kferir','kacid','kposs','krestr','kdo','kacao']);
+  'folego','incap','apego','vant','madd','mstep','mdel','npcRoll','saveCrop','rmFoto','ptplus','nextTurn','susto','freeroll','quick','hab','tudoYes','kferir','kacid','kposs','krestr','kdo','kacao']);
 const LBL={setPilha:'Pilha Comum',setFuga:'Pilha de Fuga',setPT:'Pontos de Tensão',kstep:'Ajuste do Assassino',dstep:'Pilha de Descarte',intento:'Intento Horrível',
   kferir:'Ferir',madd:'Novo marcador',mstep:'Valor do marcador',mdel:'Remover marcador',incap:'Estilo incapacitado',rmFoto:'Remover foto',rmCover:'Remover capa',
-  ptplus:'+1 PT (Desafio)',kacao:'Ações Únicas',kposs:'Possuir',krestr:'Restringir',kacid:'Acidentar',nextTurn:'Próximo turno',susto:'Assustar',saveCrop:'Imagem',cena:'Mudar cena',freeroll:'Rolagem livre',quick:'Rolagem livre',wzDone:'Criar Sobrevivente',blank:'Criar ficha'};
+  ptplus:'+1 PT (Desafio)',hab:'Habilidade',tudoYes:'Arriscar Tudo',kacao:'Ações Únicas',kposs:'Possuir',krestr:'Restringir',kacid:'Acidentar',nextTurn:'Próximo turno',susto:'Assustar',saveCrop:'Imagem',cena:'Mudar cena',freeroll:'Rolagem livre',quick:'Rolagem livre',wzDone:'Criar Sobrevivente',blank:'Criar ficha'};
 document.addEventListener('click',async e=>{const t=e.target.closest('[data-act]');if(!t)return;const act=t.dataset.act,v=t.dataset.v,id=t.dataset.id;
   if(t.tagName==='SELECT'||t.type==='file'||t.tagName==='INPUT')return;
   if(act==='scrim'){if(e.target===t&&S.modal?.t!=='crop'){S.modal=null;render()}return}
@@ -1193,7 +1453,7 @@ document.addEventListener('click',async e=>{const t=e.target.closest('[data-act]
   case 'cena':await setCena(v);break;
   case 'nextTurn':nextTurn();break;
   case 'susto':pedirSusto();break;
-  case 'mSession':confirmBox('Iniciar nova sessão?','Libera de novo o Item Icônico e a Relação Afetiva de todas as Sobreviventes.','Iniciar sessão',newSession);break;
+  case 'mSession':confirmBox('Iniciar nova sessão?','Libera de novo o Item Icônico, a Relação Afetiva, o Arriscar Tudo e as Habilidades de uso por sessão de todas as Sobreviventes.','Iniciar sessão',newSession);break;
   case 'kstep':{const k=ck(),f=t.dataset.f;const nv=clamp((k[f]||0)+(+t.dataset.d),0,f==='fugaAlvo'?6:99);updCamp({killer:{[f]:nv}});break}
   case 'dstep':updCamp({descarte:Math.max(0,(S.camp.descarte||0)+(+t.dataset.d))});break;
   case 'intento':updCamp({killer:{ph:(ck().ph||0)+(+v)}});toast(`+${v} PH para o Assassino`);break;
@@ -1236,16 +1496,33 @@ document.addEventListener('click',async e=>{const t=e.target.closest('[data-act]
   case 'rmFoto':updSheet(id,{foto:null});break;
   case 'rn':{const r=S.roll[id];r.n=clamp(r.n+(+t.dataset.d),1,Math.max(1,sh.pilha||0));render();break}
   case 'rcx':S.roll[id].complexo=v==='1';render();break;
-  case 'roll':{const r=S.roll[id]||(S.roll[id]={n:1,estilo:'',complexo:false,recurso:false,alvo:''});const est=v==='susto'?'':({vazar:'Ligeiro',partir:'Potente',distrair:'Desenrolado',libertar:'Potente'}[v]||t.dataset.e||r.estilo);
+  case 'roll':{const r=S.roll[id]||(S.roll[id]={n:1,estilo:'',complexo:false,recurso:false,alvo:''});const est=v==='susto'?'':({vazar:'Ligeiro',partir:'Potente',distrair:'Desenrolado',libertar:'Potente'}[v]||t.dataset.e||(v==='ajudar'?r.ajEst:r.estilo));
     if((v==='ajudar'||v==='libertar')&&!r.alvo)return toast('Escolha a aliada no seletor.');
     let n=r.n;if(v==='distrair'||v==='libertar')n=Math.max(n,Math.min(2,sh.pilha||0));
     await brutal(id,{act:v,n,estilo:est,complexo:(v==='distrair'||v==='libertar')?true:(S.camp.cena==='encontro'?false:r.complexo),recurso:r.recurso&&(sh.recursos||0)>0,alvo:r.alvo});r.recurso=false;break}
   case 'folego':if((sh.pilha||0)>=6)return toast('A Pilha Comum já está cheia.');
     updSheet(id,{pilha:(sh.pilha||0)+1});if(S.camp.descarte>0)updCamp({descarte:S.camp.descarte-1});
     afterTurn(id);await logRoll({kind:'brutal',who:sh.name||'Sem nome',label:'Recuperar Fôlego',dice:[],summary:'+1 dado na Pilha Comum'});break;
-  case 'mTudo':confirmBox('Arriscar Tudo?',`Escapa automaticamente do Encontro${sh.arq==='heroina'?' (Até o Fim: você mantém 1 dado)':' descartando todos os seus dados'}. Uma vez por sessão.`,'Arriscar tudo',async()=>{
-    const keep=sh.arq==='heroina'?Math.min(1,sh.pilha||0):0;const lost=(sh.pilha||0)-keep;updSheet(id,{pilha:keep,status:'escapou'});updCamp({descarte:(S.camp.descarte||0)+lost});
-    afterTurn(id);await logRoll({kind:'brutal',who:sh.name||'Sem nome',label:'Arriscar Tudo',dice:[],summary:`Escapou do Encontro · ${lost} dado(s) descartado(s)`})});break;
+  case 'mTudo':S.modal={t:'tudo',id};render();break;
+  case 'tudoYes':{const m=S.modal,me=getSheet(m.id),tid=$('#tudoT')?.value;if(!me||!tid)break;S.modal=null;const tt=getSheet(tid);
+    const keep=(me.arq==='heroina'&&tid===me.id)?Math.min(1,me.pilha||0):0;const lost=(me.pilha||0)-keep;
+    if(tid===me.id)updSheet(me.id,{pilha:keep,status:'escapou',flags:{tudoSes:true}});else{updSheet(me.id,{pilha:keep,flags:{tudoSes:true}});updSheet(tid,{status:'escapou'})}
+    updCamp({descarte:(S.camp.descarte||0)+lost,tudoEnc:true});afterTurn(me.id);
+    await logRoll({kind:'brutal',who:me.name||'Sem nome',label:'Arriscar Tudo',dice:[],summary:`${tid===me.id?'Escapou':(tt?.name||'Uma aliada')+' escapou'} do Encontro · ${lost} dado(s) descartado(s)${keep?' · Até o Fim: manteve 1':''}`});break}
+  case 'hab':{const h=HAB[sh.arq],a=ARQ[sh.arq];if(!h||h.auto)break;if(habUsed(sh,h))return toast('Habilidade já usada.');const enc_=S.camp.cena==='encontro';
+    const p={flags:{[h.rec==='enc'?'habEnc':'habSes']:true}};let sum=a.hab,nv=null;
+    if(['nerd','valentona','inocente'].includes(sh.arq)&&!enc_)return toast(a.hab+' só vale durante um Encontro.');
+    if(sh.arq==='nerd'){const f=Math.max(0,(ck().fugaAlvo||6)-(sh.fuga||0));sum+=`: faltam ${f} dado(s) para completar a Pilha de Fuga.`;toast(`Faltam ${f} dado(s) para a sua Fuga.`)}
+    if(sh.arq==='relaxada'){const uf=sh.ultFerida;if(!uf)return toast('Olé vale logo depois de sofrer uma Ferida.');nv=d(6);const ms=(sh.marcadores||[]).map(m=>({...m}));const i=ms.findIndex(m=>m.tipo==='Ferida');
+      const val=Math.max((uf.antes||0)+nv,sh.sequelas||0);if(i>=0)ms[i].valor=val;else ms.push({tipo:'Ferida',valor:val});p.marcadores=ms;p.ultFerida=null;sum+=`: Ferida rolada de novo (${uf.v} → ${nv}). Ferida agora ${val}.`}
+    updSheet(id,p);await logRoll({kind:'brutal',who:sh.name||'Sem nome',label:'Habilidade: '+a.hab,dice:nv?[{v:nv}]:[],summary:sum});if(sh.arq!=='nerd')toast(a.hab+' usada.');break}
+  case 'stab':{const b0=$('.stabs')?.getBoundingClientRect().top;S.stab[id]=v;render();const b1=$('.stabs')?.getBoundingClientRect().top;if(b0!=null&&b1!=null&&b0!==b1)window.scrollBy(0,b1-b0);break}
+  case 'rstyle':S.roll[id].estilo=v;render();break;
+  case 'ajstyle':S.roll[id].ajEst=v;render();break;
+  case 'guideToggle':S.guide.open=!S.guide.open;render();if(S.guide.open)setTimeout(()=>$('#guide')?.focus?.(),0);break;
+  case 'guideClose':S.guide.open=false;render();break;
+  case 'guide':S.guide={open:true,tab:v||'agora',q:''};render();break;
+  case 'guideTab':S.guide.tab=v;S.guide.q='';render();$('.g-body')&&($('.g-body').scrollTop=0);break;
   case 'incap':{const inc=new Set(sh.incap||[]);inc.has(v)?inc.delete(v):inc.add(v);updSheet(id,{incap:[...inc]});break}
   case 'apego':{const map={item:['itemUsado',2,'Item Icônico'],relacao:['relacaoUsada',2,'Relação Afetiva'],desejo:['desejoRevelado',3,'Desejo Obscuro']}[v];
     flush(id);updSheet(id,{pt:clamp((sh.pt||0)+map[1],0,10),apegos:{[map[0]]:true}});
@@ -1254,7 +1531,7 @@ document.addEventListener('click',async e=>{const t=e.target.closest('[data-act]
     if((sh.pt||0)<custo)return toast(`Faltam PT: ${vt.n} custa ${custo}.`);
     const p={pt:(sh.pt||0)-custo};let note=vt.n;
     if(v==='choque'||v==='dor'||v==='tratar'){if((sh.pilha||0)>=6)return toast('A Pilha Comum já está cheia.');p.pilha=(sh.pilha||0)+1;if(v==='choque')updCamp({killer:{ph:(ck().ph||0)+1}})}
-    if(v==='jeito'){const inc=sh.incap||[];if(!inc.length)return toast('Nenhum Estilo incapacitado.');p.incap=inc.slice(1);note+=': recuperou '+inc[0]}
+    if(v==='jeito'){const tid=$('#tj-'+id)?.value,tt=tid?getSheet(tid):null;if(!tt||!(tt.incap||[]).length)return toast('Ninguém com Estilo incapacitado.');const inc=tt.incap;if(tid===id)p.incap=inc.slice(1);else updSheet(tid,{incap:inc.slice(1)});note+=`: ${tid===id?'recuperou':tt.name+' recuperou'} ${inc[0]}`}
     if(v==='recursos')p.recursos=(sh.recursos||0)+1;
     if(v==='planejar'||v==='surpreender')p.flags={...(sh.flags||{}),[v]:true};
     if(v==='forcas'){const tid=$('#ft-'+id)?.value,tt=getSheet(tid);if(!tt)return toast('Escolha a Sobrevivente.');const give=Math.min(custo,10-(tt.pt||0));p.pt=(sh.pt||0)-give;updSheet(tid,{pt:(tt.pt||0)+give});note+=`: ${give} PT para ${tt.name}`}
@@ -1273,6 +1550,8 @@ document.addEventListener('click',async e=>{const t=e.target.closest('[data-act]
 const act_=(l,f)=>act(l,f);
 
 document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&S.guide?.open&&!S.modal){S.guide.open=false;render();return}
+  if((e.key==='g'||e.key==='G')&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&(S.view==='camp'||S.view==='home')&&!(e.target.matches&&e.target.matches('input,textarea,select'))){e.preventDefault();S.guide.open=!S.guide.open;render();return}
   if(e.key==='Escape'&&S.modal){S.modal=null;S.crop=null;render();return}
   if(S.view!=='camp'||!(e.ctrlKey||e.metaKey))return;const k=e.key.toLowerCase();if(k!=='z'&&k!=='y')return;
   const t=e.target;const typing=t&&t.matches&&t.matches('textarea,input[type=text],input[type=password],input[type=number],input:not([type])');
@@ -1289,6 +1568,7 @@ document.addEventListener('submit',e=>{e.preventDefault();const f=e.target;
 
 document.addEventListener('focusin',e=>{const t=e.target;if(t.dataset?.sf&&S.sheetId){const s=getSheet(S.sheetId);S.editStart={id:S.sheetId,path:t.dataset.sf,val:getPath(s,t.dataset.sf)??''}}});
 document.addEventListener('input',e=>{const t=e.target;
+  if(t.dataset.guideq){S.guide.q=t.value;render();return}
   if(t.form&&['authf','joinf'].includes(t.form.id))S.fv[t.id]=t.value;
   if(t.dataset.sf&&S.sheetId){editField(S.sheetId,t.dataset.sf,t.value)}
   else if(t.dataset.wz){S.wiz.d[t.dataset.wz]=t.value}
